@@ -1,7 +1,7 @@
+import main.type.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.mock;
 
 public class DoctorTest {
