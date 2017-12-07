@@ -1,3 +1,7 @@
+package main.type;
+
+import main.util.MySqlConnection;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

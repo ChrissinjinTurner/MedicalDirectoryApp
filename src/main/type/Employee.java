@@ -1,3 +1,5 @@
+package main.type;
+
 public class Employee {
 
     private long id;
