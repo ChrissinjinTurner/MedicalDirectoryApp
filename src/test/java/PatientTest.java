@@ -15,7 +15,7 @@ public class PatientTest {
     private Nurse nurse = mock(Nurse.class);
   
     private Patient patient = new Patient(1, "John", "Snow", "M", "812-34-2334", "10/17/97", 120.0, 70.0,
-            doctor, nurse, "Alive", date);
+            doctor, nurse, "Alive", hashMap, date);
 
     // Getter Tests
     @Test
