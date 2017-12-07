@@ -14,9 +14,10 @@ public class Patient {
     private Doctor doctor;
     private Nurse nurse;
     private String currentCondition;
+    private HashMap<String, Date> conditionMap;
     private Date dateRegistered;
 
-    public Patient(long id, String firstName, String lastName, String gender, String ssn, String dob, double weight, double height, Doctor doctor, Nurse nurse, String currentCondition, Date dateRegistered) {
+    public Patient(long id, String firstName, String lastName, String gender, String ssn, String dob, double weight, double height, Doctor doctor, Nurse nurse, String currentCondition, HashMap<String, Date> conditionMap, Date dateRegistered) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +28,7 @@ public class Patient {
         this.height = height;
         this.doctor = doctor;
         this.nurse = nurse;
+        this.conditionMap = conditionMap;
         this.currentCondition = currentCondition;
         this.dateRegistered = dateRegistered;
     }
@@ -76,6 +78,8 @@ public class Patient {
     public Date getDateRegistered() {
         return dateRegistered;
     }
+
+    public HashMap<String, Date> getConditionMap() { return conditionMap; }
 
     public Doctor getDoctor() {
         return doctor;
