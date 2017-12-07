@@ -1,3 +1,5 @@
+package main.type;
+
 public class Nurse extends Employee {
 
     public Nurse() {
