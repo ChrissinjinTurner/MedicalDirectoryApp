@@ -13,7 +13,7 @@ public class PatientTest {
     Date date = new Date(117, 3, 23);
     private Doctor doctor = mock(Doctor.class);
     private Nurse nurse = mock(Nurse.class);
-    private Patient patient = new Patient(1, "John", "Snow", "M", "812-34-2334", 120.0, 70.0,
+    private Patient patient = new Patient(1, "John", "Snow", "M", "812-34-2334", "01/23/1997", 120.0, 70.0,
             doctor, nurse, "Alive", hashMap, date);
 
     // Getter Tests
