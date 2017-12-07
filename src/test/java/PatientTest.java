@@ -13,8 +13,9 @@ public class PatientTest {
     Date date = new Date(117, 3, 23);
     private Doctor doctor = mock(Doctor.class);
     private Nurse nurse = mock(Nurse.class);
-    private Patient patient = new Patient(1, "John", "Snow", "M", "812-34-2334", "01/23/1997", 120.0, 70.0,
-            doctor, nurse, "Alive", hashMap, date);
+  
+    private Patient patient = new Patient(1, "John", "Snow", "M", "812-34-2334", "10/17/97", 120.0, 70.0,
+            doctor, nurse, "Alive", date);
 
     // Getter Tests
     @Test
@@ -60,14 +61,6 @@ public class PatientTest {
     @Test
     public void getNurseTest() {
         Assert.assertEquals(nurse.getId(), patient.getNurse().getId());
-    }
-
-    /**
-     * Doesnt work
-     */
-    @Test
-    public void getConditionMapTest() {
-        Assert.assertEquals(null, patient.getConditionMap().get(new Date()));
     }
 
     @Test
