@@ -3,7 +3,6 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        AdminTest.class,
         DoctorTest.class,
         EmployeeTest.class,
         NurseTest.class,

@@ -1,10 +1,10 @@
 import org.junit.Assert;
 import org.junit.Test;
+import main.type.*;
 
 import java.util.Date;
 import java.util.HashMap;
 
-import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.mock;
 
 public class PatientTest {
