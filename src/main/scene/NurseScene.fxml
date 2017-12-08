@@ -39,12 +39,10 @@
         <DatePicker fx:id="patientDateOfRegistration" layoutX="146.0" layoutY="97.0" prefHeight="27.0" prefWidth="150.0" promptText="Date of Registration" />
         <Separator layoutX="-6.0" layoutY="177.0" prefHeight="0.0" prefWidth="883.0" />
         <TextField fx:id="patientFirstNameSearch" layoutX="19.0" layoutY="214.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
-        <TextField fx:id="doctoreLicenseSearch" layoutX="332.0" layoutY="214.0" prefHeight="27.0" prefWidth="131.0" promptText="Doctor License #" />
         <TextField fx:id="patientSSNSearch" layoutX="217.0" layoutY="214.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient SSN" />
         <TextField fx:id="patientLastNameSearch" layoutX="117.0" layoutY="214.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
         <Label layoutX="21.0" layoutY="186.0" text="Search Patient" />
-        <DatePicker fx:id="patientDateOfRegistrationSearch" layoutX="466.0" layoutY="214.0" prefHeight="27.0" prefWidth="150.0" promptText="Date of Registration" />
-        <Button fx:id="searchButton" layoutX="630.0" layoutY="214.0" mnemonicParsing="false" text="Search" />
+        <Button fx:id="searchButton" layoutX="335.0" layoutY="214.0" mnemonicParsing="false" text="Search" />
         <Button fx:id="deleteButton" layoutX="545.0" layoutY="651.0" mnemonicParsing="false" text="Delete" />
         <Button fx:id="updateButton" alignment="CENTER" layoutX="305.0" layoutY="651.0" mnemonicParsing="false" text="Update" />
     </children>
