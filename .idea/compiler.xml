@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="MedicalDirectory" target="1.5" />
+      <module name="MedicalDirectory" target="1.8" />
       <module name="MedicalDirectoryApp" target="1.5" />
     </bytecodeTargetLevel>
   </component>

@@ -8,6 +8,7 @@ import java.sql.*;
  * Created by ONUR BASKIRT on 22.02.2016.
  */
 public class DBUtil {
+
     //Declare JDBC Driver
     private static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
 
@@ -17,11 +18,13 @@ public class DBUtil {
     //Connection String
     //String connStr = "jdbc:oracle:thin:Username/Password@IP:Port/SID";
     //Username=HR, Password=HR, IP=localhost, IP=1521, SID=xe
-    private static final String connStr = "jdbc:oracle:thin:chris/Egr320ChrisCubed@107.170.201.221:3306/MedicalDirectory";
-
+    //private static final String connStr = "jdbc:oracle:thin:chris/Egr320ChrisCubed@107.170.201.221:3306/MedicalDirectory";
+    private static final String connStr = "jdbc:mysql://107.170.201.221:3306/MedicalDirectory";
+    private static final String username = "chris";
+    private static final String password = "Egr320ChrisCubed";
 
     //Connect to DB
-    public static void dbConnect() throws SQLException, ClassNotFoundException {
+    public static void connect() throws SQLException, ClassNotFoundException {
         //Setting Oracle JDBC Driver
         try {
             Class.forName(JDBC_DRIVER);
@@ -35,7 +38,7 @@ public class DBUtil {
 
         //Establish the Oracle Connection using Connection String
         try {
-            conn = DriverManager.getConnection(connStr);
+            conn = DriverManager.getConnection(connStr, username, password);
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console" + e);
             e.printStackTrace();
@@ -44,7 +47,7 @@ public class DBUtil {
     }
 
     //Close Connection
-    public static void dbDisconnect() throws SQLException {
+    public static void disconnect() throws SQLException {
         try {
             if (conn != null && !conn.isClosed()) {
                 conn.close();
@@ -55,14 +58,14 @@ public class DBUtil {
     }
 
     //DB Execute Query Operation
-    public static ResultSet dbExecuteQuery(String queryStmt) throws SQLException, ClassNotFoundException {
+    public static ResultSet executeQuery(String queryStmt) throws SQLException, ClassNotFoundException {
         //Declare statement, resultSet and CachedResultSet as null
         Statement stmt = null;
         ResultSet resultSet = null;
         CachedRowSetImpl crs = null;
         try {
             //Connect to DB (Establish Oracle Connection)
-            dbConnect();
+            connect();
             System.out.println("Select statement: " + queryStmt + "\n");
 
             //Create statement
@@ -89,19 +92,19 @@ public class DBUtil {
                 stmt.close();
             }
             //Close connection
-            dbDisconnect();
+            disconnect();
         }
         //Return CachedRowSet
         return crs;
     }
 
     //DB Execute Update (For Update/Insert/Delete) Operation
-    public static void dbExecuteUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
+    public static void executeUpdate(String sqlStmt) throws SQLException, ClassNotFoundException {
         //Declare statement as null
         Statement stmt = null;
         try {
             //Connect to DB (Establish Oracle Connection)
-            dbConnect();
+            connect();
             //Create Statement
             stmt = conn.createStatement();
             //Run executeUpdate operation with given sql statement
@@ -115,7 +118,7 @@ public class DBUtil {
                 stmt.close();
             }
             //Close connection
-            dbDisconnect();
+            disconnect();
         }
     }
 }

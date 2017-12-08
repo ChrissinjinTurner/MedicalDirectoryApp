@@ -87,7 +87,7 @@ public class Patient {
         this.gender.set(gender);
     }
 
-    public String getSsn() {
+    public String getSSN() {
         return ssn.get();
     }
 
