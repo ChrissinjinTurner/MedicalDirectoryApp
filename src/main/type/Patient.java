@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Patient {
 
-    private long id;
+    private int id;
     private String firstName;
     private String lastName;
     private String gender;
@@ -13,13 +13,16 @@ public class Patient {
     private String dob;
     private double weight;
     private double height;
-    private Doctor doctor;
-    private Nurse nurse;
+    private Employee doctor;
+    private Employee nurse;
     private String currentCondition;
     private HashMap<String, Date> conditionMap;
     private Date dateRegistered;
 
-    public Patient(long id, String firstName, String lastName, String gender, String ssn, String dob, double weight, double height, Doctor doctor, Nurse nurse, String currentCondition, HashMap<String, Date> conditionMap, Date dateRegistered) {
+    public Patient() {
+    }
+
+    public Patient(int id, String firstName, String lastName, String gender, String ssn, String dob, double weight, double height, Doctor doctor, Nurse nurse, String currentCondition, HashMap<String, Date> conditionMap, Date dateRegistered) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -43,11 +46,11 @@ public class Patient {
         return currentCondition;
     }
 
-    public Nurse getNurse() {
+    public Employee getNurse() {
         return nurse;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -83,7 +86,7 @@ public class Patient {
 
     public HashMap<String, Date> getConditionMap() { return conditionMap; }
 
-    public Doctor getDoctor() {
+    public Employee getDoctor() {
         return doctor;
     }
 
@@ -91,11 +94,11 @@ public class Patient {
      * Setters
      */
 
-    public void setNurse(Nurse nurse) {
+    public void setNurse(Employee nurse) {
         this.nurse = nurse;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -115,7 +118,7 @@ public class Patient {
         this.ssn = ssn;
     }
 
-    public void setDob(Date date) { this.dob = dob; }
+    public void setDob(String date) { this.dob = dob; }
 
     public void setWeight(double weight) {
         this.weight = weight;
@@ -125,7 +128,7 @@ public class Patient {
         this.height = height;
     }
 
-    public void setDoctor(Doctor doctor) {
+    public void setDoctor(Employee doctor) {
         this.doctor = doctor;
     }
 
