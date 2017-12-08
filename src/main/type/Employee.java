@@ -1,32 +1,32 @@
 package main.type;
 
-import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.LongProperty;
 import javafx.beans.property.StringProperty;
 
 public class Employee {
 
-    private IntegerProperty id;
+    private LongProperty id;
     private StringProperty username;
     private StringProperty password;
     private StringProperty firstName;
     private StringProperty lastName;
 
 
-    public Employee(IntegerProperty id, StringProperty username, StringProperty password, StringProperty firstName, StringProperty lastName) {
+    public Employee(LongProperty id, StringProperty username, StringProperty password, StringProperty firstName, StringProperty lastName) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    //id
-    public int getId() {
+
+    public long getId() {
         return id.get();
     }
-    public IntegerProperty idProperty() {
+    public LongProperty idProperty() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id.set(id);
     }
 
