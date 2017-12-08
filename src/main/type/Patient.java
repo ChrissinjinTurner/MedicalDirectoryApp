@@ -1,28 +1,29 @@
 package main.type;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.LongProperty;
+import javafx.beans.property.StringProperty;
+
 import java.util.Date;
 import java.util.HashMap;
 
 public class Patient {
 
-    private int id;
-    private String firstName;
-    private String lastName;
-    private String gender;
-    private String ssn;
-    private String dob;
-    private double weight;
-    private double height;
-    private Employee doctor;
-    private Employee nurse;
-    private String currentCondition;
+    private LongProperty id;
+    private StringProperty firstName;
+    private StringProperty lastName;
+    private StringProperty gender;
+    private StringProperty ssn;
+    private StringProperty dob;
+    private DoubleProperty weight;
+    private DoubleProperty height;
+    private Doctor doctor;
+    private Nurse nurse;
+    private StringProperty currentCondition;
     private HashMap<String, Date> conditionMap;
     private Date dateRegistered;
 
-    public Patient() {
-    }
-
-    public Patient(int id, String firstName, String lastName, String gender, String ssn, String dob, double weight, double height, Doctor doctor, Nurse nurse, String currentCondition, HashMap<String, Date> conditionMap, Date dateRegistered) {
+    public Patient(LongProperty id, StringProperty firstName, StringProperty lastName, StringProperty gender, StringProperty ssn, StringProperty dob, DoubleProperty weight, DoubleProperty height, Doctor doctor, Nurse nurse, StringProperty currentCondition, HashMap<String, Date> conditionMap, Date dateRegistered) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -38,102 +39,140 @@ public class Patient {
         this.dateRegistered = dateRegistered;
     }
 
-    /**
-     * Getters
-     */
-
-    public String getCurrentCondition() {
-        return currentCondition;
+    public long getId() {
+        return id.get();
     }
 
-    public Employee getNurse() {
-        return nurse;
-    }
-
-    public int getId() {
+    public LongProperty idProperty() {
         return id;
     }
 
+    public void setId(long id) {
+        this.id.set(id);
+    }
+
     public String getFirstName() {
+        return firstName.get();
+    }
+
+    public StringProperty firstNameProperty() {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName.set(firstName);
+    }
+
     public String getLastName() {
+        return lastName.get();
+    }
+
+    public StringProperty lastNameProperty() {
         return lastName;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName.set(lastName);
+    }
+
     public String getGender() {
+        return gender.get();
+    }
+
+    public StringProperty genderProperty() {
         return gender;
     }
 
+    public void setGender(String gender) {
+        this.gender.set(gender);
+    }
+
     public String getSSN() {
+        return ssn.get();
+    }
+
+    public StringProperty ssnProperty() {
         return ssn;
     }
 
-    public String getDob() {return dob;}
+    public void setSsn(String ssn) {
+        this.ssn.set(ssn);
+    }
+
+    public String getDob() {
+        return dob.get();
+    }
+
+    public StringProperty dobProperty() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob.set(dob);
+    }
 
     public double getWeight() {
+        return weight.get();
+    }
+
+    public DoubleProperty weightProperty() {
         return weight;
     }
 
+    public void setWeight(double weight) {
+        this.weight.set(weight);
+    }
+
     public double getHeight() {
+        return height.get();
+    }
+
+    public DoubleProperty heightProperty() {
         return height;
+    }
+
+    public void setHeight(double height) {
+        this.height.set(height);
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public Nurse getNurse() {
+        return nurse;
+    }
+
+    public void setNurse(Nurse nurse) {
+        this.nurse = nurse;
+    }
+
+    public String getCurrentCondition() {
+        return currentCondition.get();
+    }
+
+    public StringProperty currentConditionProperty() {
+        return currentCondition;
+    }
+
+    public void setCurrentCondition(String currentCondition) {
+        this.currentCondition.set(currentCondition);
+    }
+
+    public HashMap<String, Date> getConditionMap() {
+        return conditionMap;
+    }
+
+    public void setConditionMap(HashMap<String, Date> conditionMap) {
+        this.conditionMap = conditionMap;
     }
 
     public Date getDateRegistered() {
         return dateRegistered;
-    }
-
-    public HashMap<String, Date> getConditionMap() { return conditionMap; }
-
-    public Employee getDoctor() {
-        return doctor;
-    }
-
-    /**
-     * Setters
-     */
-
-    public void setNurse(Employee nurse) {
-        this.nurse = nurse;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setSSN(String ssn) {
-        this.ssn = ssn;
-    }
-
-    public void setDob(String date) { this.dob = dob; }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public void setDoctor(Employee doctor) {
-        this.doctor = doctor;
-    }
-
-    public void setCurrentCondition(String condition) {
-        this.currentCondition = condition;
     }
 
     public void setDateRegistered(Date dateRegistered) {

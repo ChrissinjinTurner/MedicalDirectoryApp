@@ -1,95 +1,77 @@
 package main.type;
 
-import java.util.Date;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
 
 public class Employee {
 
-    private int id;
-    private int license;
-    private String username;
-    private String password;
-    private String firstName;
-    private String lastName;
-    private int type;
-    private Date registrationDate;
+    private IntegerProperty id;
+    private StringProperty username;
+    private StringProperty password;
+    private StringProperty firstName;
+    private StringProperty lastName;
 
-    public Employee() {
-        new Employee(0, 0, "", "", "", "", 3, new Date()); // change 0 later after DB is done
-    }
 
-    public Employee(int id, int license, String username, String password, String firstName, String lastName, int type, Date registrationDate) {
+    public Employee(IntegerProperty id, StringProperty username, StringProperty password, StringProperty firstName, StringProperty lastName) {
         this.id = id;
-        this.license = license;
-        this.type = type;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.registrationDate = registrationDate;
     }
-
+    //id
     public int getId() {
+        return id.get();
+    }
+    public IntegerProperty idProperty() {
         return id;
     }
+    public void setId(int id) {
+        this.id.set(id);
+    }
 
+    //username
     public String getUsername() {
+        return username.get();
+    }
+    public StringProperty usernameProperty() {
         return username;
     }
-
     public void setUsername(String username) {
-        this.username = username;
+        this.username.set(username);
     }
 
+    //password
     public String getPassword() {
+        return password.get();
+    }
+    public StringProperty passwordProperty() {
         return password;
     }
-
     public void setPassword(String password) {
-        this.password = password;
+        this.password.set(password);
     }
 
-    public int getLicense() {
-        return license;
-    }
-
-    public void setLicense(int license) {
-        this.license = license;
-    }
-
+    //firstname
     public String getFirstName() {
+        return firstName.get();
+    }
+    public StringProperty firstNameProperty() {
         return firstName;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
-    }
-
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName.set(firstName);
     }
 
+    //lastname
     public String getLastName() {
+        return lastName.get();
+    }
+    public StringProperty lastNameProperty() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Date getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
+        this.lastName.set(lastName);
     }
 
     public void viewPatient(Patient patient) {

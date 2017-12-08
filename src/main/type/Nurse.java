@@ -1,14 +1,11 @@
 package main.type;
 
-import java.util.Date;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
 
 public class Nurse extends Employee {
 
-    public Nurse() {
-        super();
-    }
-
-    public Nurse(int id, int license, String username, String password, String firstName, String lastName) {
-        super(id, license, username, password, firstName, lastName, 2, new Date());
+    public Nurse(IntegerProperty id, StringProperty username, StringProperty password, StringProperty firstName, StringProperty lastName) {
+        super(id, username, password, firstName, lastName);
     }
 }
