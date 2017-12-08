@@ -1,59 +1,77 @@
 package main.type;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
+
 public class Employee {
 
-    private long id;
-    private String username;
-    private String password;
-    private String firstName;
-    private String lastName;
+    private IntegerProperty id;
+    private StringProperty username;
+    private StringProperty password;
+    private StringProperty firstName;
+    private StringProperty lastName;
 
-    public Employee() {
-        new Employee(0, "", "", "", ""); // change 0 later after DB is done
-    }
 
-    public Employee(long id, String username, String password, String firstName, String lastName) {
+    public Employee(IntegerProperty id, StringProperty username, StringProperty password, StringProperty firstName, StringProperty lastName) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
-    public long getId() {
+    //id
+    public int getId() {
+        return id.get();
+    }
+    public IntegerProperty idProperty() {
         return id;
     }
+    public void setId(int id) {
+        this.id.set(id);
+    }
 
+    //username
     public String getUsername() {
+        return username.get();
+    }
+    public StringProperty usernameProperty() {
         return username;
     }
-
     public void setUsername(String username) {
-        this.username = username;
+        this.username.set(username);
     }
 
+    //password
     public String getPassword() {
+        return password.get();
+    }
+    public StringProperty passwordProperty() {
         return password;
     }
-
     public void setPassword(String password) {
-        this.password = password;
+        this.password.set(password);
     }
 
+    //firstname
     public String getFirstName() {
+        return firstName.get();
+    }
+    public StringProperty firstNameProperty() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName.set(firstName);
     }
 
+    //lastname
     public String getLastName() {
+        return lastName.get();
+    }
+    public StringProperty lastNameProperty() {
         return lastName;
     }
-
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName.set(lastName);
     }
 
     public void viewPatient(Patient patient) {

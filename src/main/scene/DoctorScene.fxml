@@ -15,9 +15,9 @@
       <TextField fx:id="patientHeight" layoutX="452.0" layoutY="61.0" prefHeight="12.0" prefWidth="113.0" promptText="Height" />
       <TextField fx:id="patientGender" layoutX="221.0" layoutY="61.0" prefHeight="27.0" prefWidth="62.0" promptText="Gender" />
       <TextField fx:id="PatientSSN" layoutX="23.0" layoutY="97.0" prefHeight="12.0" prefWidth="113.0" promptText="Patient SSN" />
-      <TextField fx:id="pateintLastName" layoutX="121.0" layoutY="61.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
+      <TextField fx:id="patientLastName" layoutX="121.0" layoutY="61.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
       <Button fx:id="addNewPatientButton" layoutX="691.0" layoutY="134.0" mnemonicParsing="false" text="Add Patient" />
-      <TableView layoutX="8.0" layoutY="268.0" prefHeight="367.0" prefWidth="859.0">
+      <TableView fx:id="patientTable" layoutX="8.0" layoutY="268.0" prefHeight="367.0" prefWidth="859.0">
         <columns>
           <TableColumn fx:id="patientIDtable" prefWidth="51.0" text="ID" />
           <TableColumn fx:id="patientFirstNameTable" prefWidth="87.0" text="First Name" />
