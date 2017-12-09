@@ -20,13 +20,12 @@ public class Patient {
     private Employee doctor;
     private Employee nurse;
     private StringProperty currentCondition;
-    private HashMap<String, Date> conditionMap;
     private Date dateRegistered;
 
     public Patient() {
 
     }
-    public Patient(IntegerProperty id, StringProperty firstName, StringProperty lastName, StringProperty gender, StringProperty ssn, StringProperty dob, DoubleProperty weight, DoubleProperty height, Employee doctor, Employee nurse, StringProperty currentCondition, HashMap<String, Date> conditionMap, Date dateRegistered) {
+    public Patient(IntegerProperty id, StringProperty firstName, StringProperty lastName, StringProperty gender, StringProperty ssn, StringProperty dob, DoubleProperty weight, DoubleProperty height, Employee doctor, Employee nurse, StringProperty currentCondition, Date dateRegistered) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -37,7 +36,6 @@ public class Patient {
         this.height = height;
         this.doctor = doctor;
         this.nurse = nurse;
-        this.conditionMap = conditionMap;
         this.currentCondition = currentCondition;
         this.dateRegistered = dateRegistered;
     }
@@ -175,16 +173,6 @@ public class Patient {
     public void setCurrentCondition(String currentCondition) {
         this.currentCondition.set(currentCondition);
     }
-
-
-    public HashMap<String, Date> getConditionMap() {
-        return conditionMap;
-    }
-
-    public void setConditionMap(HashMap<String, Date> conditionMap) {
-        this.conditionMap = conditionMap;
-    }
-
 
     public Date getDateRegistered() {
         return dateRegistered;
