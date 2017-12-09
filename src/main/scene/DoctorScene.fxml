@@ -33,12 +33,12 @@
         </columns>
       </TableView>
       <Label layoutX="25.0" layoutY="33.0" text="Add New Patient" />
-      <TextField fx:id="patientDOB" layoutX="292.0" layoutY="61.0" prefHeight="27.0" prefWidth="150.0" promptText="Date of Birth" />
+      <DatePicker fx:id="patientDOB" layoutX="292.0" layoutY="61.0" prefHeight="27.0" prefWidth="150.0" promptText="Date of Birth" />
       <TextField fx:id="patientWeight" layoutX="575.0" layoutY="61.0" prefHeight="12.0" prefWidth="113.0" promptText="Weight" />
       <TextField fx:id="doctorLicense" layoutX="145.0" layoutY="97.0" prefHeight="27.0" prefWidth="125.0" promptText="Doctor License #" />
       <TextField fx:id="nurseID" layoutX="279.0" layoutY="97.0" prefHeight="12.0" prefWidth="113.0" promptText="Nurse ID" />
       <TextField fx:id="patientCurrentCondition" layoutX="25.0" layoutY="134.0" prefHeight="27.0" prefWidth="651.0" promptText="Current Condition" />
-      <TextField fx:id="patientDateOfRegistration" layoutX="401.0" layoutY="97.0" prefHeight="27.0" prefWidth="150.0" promptText="Date of Registration" />
+      <DatePicker fx:id="patientDateOfRegistration" layoutX="401.0" layoutY="97.0" prefHeight="27.0" prefWidth="150.0" promptText="Date of Registration" />
       <Separator layoutX="-6.0" layoutY="177.0" prefHeight="0.0" prefWidth="883.0" />
       <TextField fx:id="patientFirstNameSearch" layoutX="19.0" layoutY="214.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
       <TextField fx:id="patientSSNSearch" layoutX="217.0" layoutY="214.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient SSN" />

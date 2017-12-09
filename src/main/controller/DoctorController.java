@@ -26,7 +26,7 @@ public class DoctorController {
     @FXML
     private TableView patientTable;
     @FXML
-    private TableColumn<Patient, Long> patientIDtable;
+    private TableColumn<Patient, Integer> patientIDtable;
     @FXML
     private TableColumn<Patient, String> patientFirstNameTable;
     @FXML
@@ -44,7 +44,7 @@ public class DoctorController {
     @FXML
     private TableColumn<Doctor, String> doctorLicenseTable;
     @FXML
-    private TableColumn<Nurse, Long> nurseIDTable;
+    private TableColumn<Nurse, Integer> nurseIDTable;
     @FXML
     private TableColumn<Patient, String> conditionTable;
     @FXML
@@ -87,7 +87,7 @@ public class DoctorController {
         patientHeightTable.setCellValueFactory(cellData -> cellData.getValue().heightProperty().asObject());
         patientWeightTable.setCellValueFactory(cellData -> cellData.getValue().weightProperty().asObject());
         PatientSSNTable.setCellValueFactory(cellData -> cellData.getValue().ssnProperty());
-        //doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().);
+        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().licenseProperty().asString());
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 

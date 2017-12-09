@@ -11,14 +11,14 @@ public class PatientDAO {
 
     // Add a patient to the database (CREATE)
     public static void addPatient(String firstName, String lastName, String gender, String ssn, String dob,
-                                  double weight, double height, Employee doctor,
-                                  Employee nurse, String currentCondition) throws SQLException, ClassNotFoundException {
+                                  double weight, double height, String doctor,
+                                  String nurse, String currentCondition) throws SQLException, ClassNotFoundException {
         // SQL query to add the patient
         String addQuery =
                 "INSERT INTO patients (id, ssn, dob, firstName, lastName, gender, weight, height, currentCondition," +
                         " doctor, nurse, reg_date) VALUES (null, '" + ssn + "', '" + dob + "', '" + firstName +
                         "', '" + lastName + "', '" + gender + "', " + weight + ", " + height + ", '"
-                        + currentCondition + "', " + doctor.getLicense() + ", " + nurse.getId() + ", null)";
+                        + currentCondition + "', " + doctor + ", " + nurse + ", null)";
         // Attempt to add the patient
         try {
             DBUtil.executeUpdate(addQuery);

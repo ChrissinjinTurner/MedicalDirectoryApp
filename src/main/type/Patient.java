@@ -1,7 +1,7 @@
 package main.type;
 
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.LongProperty;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
 import java.util.Date;
@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class Patient {
 
-    private LongProperty id;
+    private IntegerProperty id;
     private StringProperty firstName;
     private StringProperty lastName;
     private StringProperty gender;
@@ -17,13 +17,16 @@ public class Patient {
     private StringProperty dob;
     private DoubleProperty weight;
     private DoubleProperty height;
-    private Doctor doctor;
-    private Nurse nurse;
+    private Employee doctor;
+    private Employee nurse;
     private StringProperty currentCondition;
     private HashMap<String, Date> conditionMap;
     private Date dateRegistered;
 
-    public Patient(LongProperty id, StringProperty firstName, StringProperty lastName, StringProperty gender, StringProperty ssn, StringProperty dob, DoubleProperty weight, DoubleProperty height, Doctor doctor, Nurse nurse, StringProperty currentCondition, HashMap<String, Date> conditionMap, Date dateRegistered) {
+    public Patient() {
+
+    }
+    public Patient(IntegerProperty id, StringProperty firstName, StringProperty lastName, StringProperty gender, StringProperty ssn, StringProperty dob, DoubleProperty weight, DoubleProperty height, Employee doctor, Employee nurse, StringProperty currentCondition, HashMap<String, Date> conditionMap, Date dateRegistered) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -43,13 +46,14 @@ public class Patient {
         return id.get();
     }
 
-    public LongProperty idProperty() {
+    public IntegerProperty idProperty() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id.set(id);
     }
+
 
     public String getFirstName() {
         return firstName.get();
@@ -63,6 +67,7 @@ public class Patient {
         this.firstName.set(firstName);
     }
 
+
     public String getLastName() {
         return lastName.get();
     }
@@ -74,6 +79,7 @@ public class Patient {
     public void setLastName(String lastName) {
         this.lastName.set(lastName);
     }
+
 
     public String getGender() {
         return gender.get();
@@ -87,6 +93,7 @@ public class Patient {
         this.gender.set(gender);
     }
 
+
     public String getSSN() {
         return ssn.get();
     }
@@ -98,6 +105,7 @@ public class Patient {
     public void setSSN(String ssn) {
         this.ssn.set(ssn);
     }
+
 
     public String getDob() {
         return dob.get();
@@ -111,6 +119,7 @@ public class Patient {
         this.dob.set(dob);
     }
 
+
     public double getWeight() {
         return weight.get();
     }
@@ -122,6 +131,7 @@ public class Patient {
     public void setWeight(double weight) {
         this.weight.set(weight);
     }
+
 
     public double getHeight() {
         return height.get();
@@ -135,21 +145,24 @@ public class Patient {
         this.height.set(height);
     }
 
-    public Doctor getDoctor() {
+
+    public Employee getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(Doctor doctor) {
+    public void setDoctor(Employee doctor) {
         this.doctor = doctor;
     }
 
-    public Nurse getNurse() {
+
+    public Employee getNurse() {
         return nurse;
     }
 
-    public void setNurse(Nurse nurse) {
+    public void setNurse(Employee nurse) {
         this.nurse = nurse;
     }
+
 
     public String getCurrentCondition() {
         return currentCondition.get();
@@ -163,6 +176,7 @@ public class Patient {
         this.currentCondition.set(currentCondition);
     }
 
+
     public HashMap<String, Date> getConditionMap() {
         return conditionMap;
     }
@@ -170,6 +184,7 @@ public class Patient {
     public void setConditionMap(HashMap<String, Date> conditionMap) {
         this.conditionMap = conditionMap;
     }
+
 
     public Date getDateRegistered() {
         return dateRegistered;
