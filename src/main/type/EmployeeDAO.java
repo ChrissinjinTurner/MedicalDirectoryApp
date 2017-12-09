@@ -65,7 +65,7 @@ public class EmployeeDAO {
             employee.setFirstName(resultSet.getString("firstName"));
             employee.setLastName(resultSet.getString("lastName"));
             employee.setType(resultSet.getInt("employeeType"));
-            //employee.setRegistrationDate(resultSet.getDate("reg_date"));
+            employee.setRegistrationDate(resultSet.getDate("reg_date"));
         }
         return employee;
     }
