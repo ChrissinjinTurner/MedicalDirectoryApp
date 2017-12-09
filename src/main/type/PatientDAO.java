@@ -11,8 +11,8 @@ public class PatientDAO {
 
     // Add a patient to the database (CREATE)
     public static void addPatient(String firstName, String lastName, String gender, String ssn, String dob,
-                                  double weight, double height, String doctor,
-                                  String nurse, String currentCondition) throws SQLException, ClassNotFoundException {
+                                  double weight, double height, int doctor,
+                                  int nurse, String currentCondition) throws SQLException, ClassNotFoundException {
         // SQL query to add the patient
         String addQuery =
                 "INSERT INTO patients (id, ssn, dob, firstName, lastName, gender, weight, height, currentCondition," +
@@ -142,13 +142,13 @@ public class PatientDAO {
 
     // Edit a patient in the database (UPDATE)
     public static void editPatient(int id, String firstName, String lastName, String gender, String ssn, String dob,
-                                  double weight, double height, Employee doctor,
-                                  Employee nurse, String currentCondition) throws SQLException, ClassNotFoundException {
+                                  double weight, double height, int doctor,
+                                  int nurse, String currentCondition) throws SQLException, ClassNotFoundException {
         // SQL query to edit the patient
         String editQuery =
                 "UPDATE patients SET firstName = '" + firstName + "', lastName = '" + lastName +
                 "', gender = '" + gender + "', ssn = '" + ssn + "', dob = '" + dob + "', weight = " + weight + ", " +
-                        "height = " + height + ", doctor = " + doctor.getLicense() + ", nurse = " + nurse.getId() + ", " +
+                        "height = " + height + ", doctor = " + doctor + ", nurse = " + nurse + ", " +
                         "currentCondition = '" + currentCondition + "' WHERE id = " + id;
         // Attempt to edit the patient
         try {
