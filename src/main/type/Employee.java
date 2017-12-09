@@ -1,33 +1,53 @@
 package main.type;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.StringProperty;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class Employee {
 
-    private LongProperty id;
+    private IntegerProperty id;
+    private IntegerProperty license;
     private StringProperty username;
     private StringProperty password;
     private StringProperty firstName;
     private StringProperty lastName;
+    private IntegerProperty type;
+    private Date registrationDate;
 
+    public Employee() {
 
-    public Employee(LongProperty id, StringProperty username, StringProperty password, StringProperty firstName, StringProperty lastName) {
+    }
+    public Employee(IntegerProperty id, IntegerProperty license,  StringProperty username, StringProperty password, StringProperty firstName, StringProperty lastName, IntegerProperty type, Date registrationDate) {
         this.id = id;
+        this.license = license;
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public long getId() {
+    public int getId() {
         return id.get();
     }
-    public LongProperty idProperty() {
+    public IntegerProperty idProperty() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(int id) {
         this.id.set(id);
+    }
+
+    public int getLicense() {
+        return license.get();
+    }
+    public IntegerProperty licenseProperty() {
+        return license;
+    }
+    public void setLicense(int license) {
+        this.license.set(license);
     }
 
     //username
@@ -72,6 +92,30 @@ public class Employee {
     }
     public void setLastName(String lastName) {
         this.lastName.set(lastName);
+    }
+
+    public int getType() {
+        return type.get();
+    }
+    public IntegerProperty typeProperty() {
+        return type;
+    }
+    public void setType(int type) {
+        this.type.set(type);
+    }
+
+    /**
+     * NEEDS FIXING
+     * @return
+     */
+    public Date getRegistrationDate() {
+        return null;
+    }
+    public Date dateProperty() {
+        return registrationDate;
+    }
+    public void setRegistrationDate() {
+       //this.registrationDate = Calendar.set(Calendar.DAY_OF_MONTH, registrationDate);
     }
 
     public void viewPatient(Patient patient) {
