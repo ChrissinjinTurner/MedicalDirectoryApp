@@ -21,6 +21,7 @@ public class Patient {
     private Date dateRegistered;
 
     public Patient() {
+<<<<<<< HEAD
         this.id = new SimpleIntegerProperty();
         this.firstName = new SimpleStringProperty();
         this.lastName = new SimpleStringProperty();
@@ -47,6 +48,22 @@ public class Patient {
         this.doctor = doctor;
         this.nurse = nurse;
         this.currentCondition = new SimpleStringProperty(currentCondition);
+=======
+
+    }
+    public Patient(IntegerProperty id, StringProperty firstName, StringProperty lastName, StringProperty gender, StringProperty ssn, StringProperty dob, DoubleProperty weight, DoubleProperty height, Employee doctor, Employee nurse, StringProperty currentCondition, Date dateRegistered) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.ssn = ssn;
+        this.dob = dob;
+        this.weight = weight;
+        this.height = height;
+        this.doctor = doctor;
+        this.nurse = nurse;
+        this.currentCondition = currentCondition;
+>>>>>>> 27abdf4... Fixed broken stuff done by Chris
         this.dateRegistered = dateRegistered;
     }
 

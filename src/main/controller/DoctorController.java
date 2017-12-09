@@ -4,7 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+<<<<<<< HEAD
 import javafx.scene.Parent;
+=======
+>>>>>>> 27abdf4... Fixed broken stuff done by Chris
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
@@ -47,7 +50,11 @@ public class DoctorController {
     @FXML
     private TableColumn<Patient, String> patientSSNTable;
     @FXML
+<<<<<<< HEAD
     private TableColumn<Patient, String> doctorLicenseTable;
+=======
+    private TableColumn<Doctor, Integer> doctorLicenseTable;
+>>>>>>> 27abdf4... Fixed broken stuff done by Chris
     @FXML
     private TableColumn<Patient, String> nurseIDTable;
     @FXML
@@ -93,9 +100,15 @@ public class DoctorController {
         patientDOBTable.setCellValueFactory(cellData -> cellData.getValue().dobProperty());
         patientHeightTable.setCellValueFactory(cellData -> cellData.getValue().heightProperty().asObject());
         patientWeightTable.setCellValueFactory(cellData -> cellData.getValue().weightProperty().asObject());
+<<<<<<< HEAD
         patientSSNTable.setCellValueFactory(cellData -> cellData.getValue().ssnProperty());
         doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().getDoctor().lastNameProperty());
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().getNurse().lastNameProperty());
+=======
+        PatientSSNTable.setCellValueFactory(cellData -> cellData.getValue().ssnProperty());
+        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().licenseProperty().asObject());
+        nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+>>>>>>> 27abdf4... Fixed broken stuff done by Chris
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 
         try {
@@ -114,6 +127,7 @@ public class DoctorController {
             Double height = Double.parseDouble(patientHeight.getText());
             Integer doctor = Integer.parseInt(doctorLicense.getText());
             Integer nurse = Integer.parseInt(nurseID.getText());
+<<<<<<< HEAD
 
             char[] ssnArr = PatientSSN.getText().toCharArray();
             String ssn = formatSSN(ssnArr);
@@ -123,6 +137,10 @@ public class DoctorController {
                     patientGender.getText().toUpperCase(),ssn,
                     patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, doctor,nurse,patientCurrentCondition.getText());
             patientTable.setItems(PatientDAO.getPatients());
+=======
+            PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
+                    patientDOB.getText(),weight,height, doctor,nurse,patientCurrentCondition.getText());
+>>>>>>> 27abdf4... Fixed broken stuff done by Chris
         } catch (SQLException e) {
             throw e;
         }
