@@ -1,6 +1,7 @@
 package main.type;
 
-import javafx.beans.property.LongProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.StringProperty;
 import main.util.MySqlConnection;
 
@@ -13,8 +14,12 @@ import java.util.Date;
 
 public class Doctor extends Employee {
 
-    public Doctor(LongProperty id, StringProperty username, StringProperty password, StringProperty firstName, StringProperty lastName) {
-        super(id, username, password, firstName, lastName);
+    public Doctor() {
+
+    }
+
+    public Doctor(IntegerProperty id, IntegerProperty license, StringProperty username, StringProperty password, StringProperty firstName, StringProperty lastName) {
+        super(id, license, username, password, firstName, lastName, new SimpleIntegerProperty(1), new Date());
     }
 
     public void createPatient(Patient patient) throws SQLException {
