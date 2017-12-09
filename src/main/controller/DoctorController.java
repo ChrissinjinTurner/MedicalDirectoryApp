@@ -2,7 +2,6 @@ package main.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import main.type.*;
 
@@ -42,7 +41,7 @@ public class DoctorController {
     @FXML
     private TableColumn<Patient, String> PatientSSNTable;
     @FXML
-    private TableColumn<Doctor, String> doctorLicenseTable;
+    private TableColumn<Doctor, Integer> doctorLicenseTable;
     @FXML
     private TableColumn<Nurse, Integer> nurseIDTable;
     @FXML
@@ -52,7 +51,7 @@ public class DoctorController {
     @FXML
     private TextField patientWeight;
     @FXML
-    private TextField patientLicense;
+    private TextField doctorLicense;
     @FXML
     private TextField nurseID;
     @FXML
@@ -87,7 +86,7 @@ public class DoctorController {
         patientHeightTable.setCellValueFactory(cellData -> cellData.getValue().heightProperty().asObject());
         patientWeightTable.setCellValueFactory(cellData -> cellData.getValue().weightProperty().asObject());
         PatientSSNTable.setCellValueFactory(cellData -> cellData.getValue().ssnProperty());
-        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().licenseProperty().asString());
+        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().licenseProperty().asObject());
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 
@@ -99,8 +98,10 @@ public class DoctorController {
         try {
             Double weight = Double.parseDouble(patientWeight.getText());
             Double height = Double.parseDouble(patientHeight.getText());
+            Integer doctor = Integer.parseInt(doctorLicense.getText());
+            Integer nurse = Integer.parseInt(nurseID.getText());
             PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
-                    patientDOB.getText(),weight,height,patientLicense.getText(),nurseID.getText(),patientCurrentCondition.getText());
+                    patientDOB.getText(),weight,height, doctor,nurse,patientCurrentCondition.getText());
         } catch (SQLException e) {
             throw e;
         }
