@@ -1,11 +1,10 @@
 package main.type;
 
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.LongProperty;
 import javafx.beans.property.StringProperty;
 
 import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 
 public class Employee {
 
@@ -105,20 +104,17 @@ public class Employee {
     }
 
     /**
-     * NEEDS FIXING
+     * I think this is fixed...
      * @return
      */
     public Date getRegistrationDate() {
-        return null;
+        return new Date(registrationDate.getTime());
     }
     public Date dateProperty() {
         return registrationDate;
     }
-    public void setRegistrationDate() {
-       //this.registrationDate = Calendar.set(Calendar.DAY_OF_MONTH, registrationDate);
+    public void setRegistrationDate(Date date) {
+       this.registrationDate.setTime(date.getTime());
     }
 
-    public void viewPatient(Patient patient) {
-        System.out.println(patient);
-    }
 }
