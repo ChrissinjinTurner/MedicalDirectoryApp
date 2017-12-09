@@ -10,7 +10,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<<<<<<< HEAD
 <AnchorPane prefHeight="497.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.OrderlyController">
+=======
+<AnchorPane prefHeight="497.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.OrderlyController">
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
     <children>
         <TableView fx:id="patientTable" layoutX="8.0" layoutY="121.0" prefHeight="367.0" prefWidth="859.0">
             <columns>

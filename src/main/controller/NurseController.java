@@ -1,5 +1,6 @@
 package main.controller;
 
+<<<<<<< HEAD
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -13,6 +14,16 @@ import main.type.PatientDAO;
 
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
+=======
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import main.type.Doctor;
+import main.type.Nurse;
+import main.type.Patient;
+
+import javax.swing.text.TableView;
+import java.awt.*;
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -31,7 +42,11 @@ public class NurseController {
     @FXML
     private TableView table;
     @FXML
+<<<<<<< HEAD
     private TableColumn<Patient, Integer> patientIDTable;
+=======
+    private TableColumn<Patient, Integer> patientIDtable;
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
     @FXML
     private TableColumn<Patient, String> patientFirstNameTable;
     @FXML
@@ -47,6 +62,7 @@ public class NurseController {
     @FXML
     private TableColumn<Patient, String> PatientSSNTable;
     @FXML
+<<<<<<< HEAD
     private TableColumn<Patient, String> doctorLicenseTable;
     @FXML
     private TableColumn<Patient, String> nurseIDTable;
@@ -54,16 +70,31 @@ public class NurseController {
     private TableColumn<Patient, String> conditionTable;
     @FXML
     private DatePicker patientDOB;
+=======
+    private TableColumn<Doctor, Integer> doctorLicenseTable;
+    @FXML
+    private TableColumn<Nurse, Integer> nurseIDTable;
+    @FXML
+    private TableColumn<Patient, String> conditionTable;
+    @FXML
+    private TextField patientDOB;
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
     @FXML
     private TextField patientWeight;
     @FXML
     private TextField patientCurrentCondition;
     @FXML
+<<<<<<< HEAD
+=======
+    private TextField patientDateOfRegistration;
+    @FXML
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
     private TextField patientFirstNameSearch;
     @FXML
     private TextField patientSSNSearch;
     @FXML
     private TextField patientLastNameSearch;
+<<<<<<< HEAD
     @FXML
     private TextField patientUpdateID;
 
@@ -74,12 +105,26 @@ public class NurseController {
     private void initialize(){
         //For multithreading: Create executor that uses daemon threads:
         executor = Executors.newCachedThreadPool((runnable) -> {
+=======
+
+    //for multithreading
+    private Executor execute;
+
+    @FXML
+    private void intitialize(){
+        //For multithreading: Create executor that uses daemon threads:
+        execute = Executors.newCachedThreadPool((runnable) -> {
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
             Thread t = new Thread (runnable);
             t.setDaemon(true);
             return t;
         });
 
+<<<<<<< HEAD
         patientIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+=======
+        patientIDtable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
         patientFirstNameTable.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         patientLastNameTable.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
         patientGenderTable.setCellValueFactory(cellData -> cellData.getValue().genderProperty());
@@ -87,6 +132,7 @@ public class NurseController {
         patientHeightTable.setCellValueFactory(cellData -> cellData.getValue().heightProperty().asObject());
         patientWeightTable.setCellValueFactory(cellData -> cellData.getValue().weightProperty().asObject());
         PatientSSNTable.setCellValueFactory(cellData -> cellData.getValue().ssnProperty());
+<<<<<<< HEAD
         doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().getDoctor().lastNameProperty());
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().getNurse().lastNameProperty());
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
@@ -191,5 +237,11 @@ public class NurseController {
             }
         }
         return ssn.toString();
+=======
+        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().licenseProperty().asObject());
+        nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+        conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
+
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
     }
 }

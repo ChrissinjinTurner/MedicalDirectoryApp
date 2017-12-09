@@ -11,6 +11,7 @@
 
 <AnchorPane prefHeight="733.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.NurseController">
     <children>
+<<<<<<< HEAD
         <TextField fx:id="patientFirstName" layoutX="97.0" layoutY="59.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
         <TextField fx:id="patientLastName" layoutX="195.0" layoutY="59.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
         <TextField fx:id="patientGender" layoutX="295.0" layoutY="59.0" prefHeight="27.0" prefWidth="62.0" promptText="Gender" />
@@ -25,6 +26,14 @@
         <TextField fx:id="patientSSNSearch" layoutX="217.0" layoutY="214.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient SSN" />
         <TextField fx:id="patientSSNSearch1" layoutX="375.0" layoutY="651.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID" />
         <Button fx:id="addNewPatientButton" layoutX="672.0" layoutY="134.0" mnemonicParsing="false" onAction="#insertPatient" text="Add Patient" />
+=======
+        <TextField fx:id="patientFirstName" layoutX="23.0" layoutY="61.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
+        <TextField fx:id="patientHeight" layoutX="452.0" layoutY="61.0" prefHeight="12.0" prefWidth="113.0" promptText="Height" />
+        <TextField fx:id="patientGender" layoutX="221.0" layoutY="61.0" prefHeight="27.0" prefWidth="62.0" promptText="Gender" />
+        <TextField fx:id="PatientSSN" layoutX="23.0" layoutY="97.0" prefHeight="12.0" prefWidth="113.0" promptText="Patient SSN" />
+        <TextField fx:id="patientLastName" layoutX="121.0" layoutY="61.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
+        <Button fx:id="addNewPatientButton" layoutX="691.0" layoutY="134.0" mnemonicParsing="false" text="Add Patient" />
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
         <TableView fx:id="table" layoutX="8.0" layoutY="268.0" prefHeight="367.0" prefWidth="859.0">
             <columns>
                 <TableColumn fx:id="patientIDTable" prefWidth="51.0" text="ID" />

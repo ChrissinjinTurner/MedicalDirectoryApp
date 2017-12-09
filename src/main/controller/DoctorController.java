@@ -1,6 +1,9 @@
 package main.controller;
 
+<<<<<<< HEAD
 import javafx.collections.FXCollections;
+=======
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,12 +12,23 @@ import javafx.scene.Parent;
 =======
 >>>>>>> 27abdf4... Fixed broken stuff done by Chris
 import javafx.scene.control.TableColumn;
+<<<<<<< HEAD
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
 import main.type.*;
 
+=======
+import main.type.Doctor;
+import main.type.Nurse;
+import main.type.Patient;
+import main.type.PatientDAO;
+
+import javax.swing.text.TableView;
+import javax.swing.text.View;
+import java.awt.*;
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Executor;
@@ -147,6 +161,7 @@ public class DoctorController {
     }
 
     @FXML
+<<<<<<< HEAD
     private void searchPatient(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
             //Get Patient information
@@ -165,6 +180,47 @@ public class DoctorController {
             } else {
                 patients = PatientDAO.getPatient(patientFirstNameSearch.getText(), patientLastNameSearch.getText(), patientSSNSearch.getText());
             }
+=======
+    private void searchPatient (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            //Get Employee information
+            ObservableList patient = null;
+            if (patientFirstNameSearch == null && patientLastNameSearch == null) {
+                patient = PatientDAO.getPatient(patientFirstNameSearch.getText(), patientLastNameSearch.getText(), patientSSNSearch.getText());
+            } else if (patientLastNameSearch == null && patientSSNSearch == null) {
+                patient = PatientDAO.getPatientByFirstName(patientFirstNameSearch.getText());
+            } else if (patientFirstNameSearch == null && patientSSNSearch == null){
+                patient = PatientDAO.getPatientByLastName(patientLastNameSearch.getText());
+            } else {
+                patient = (ObservableList) PatientDAO.getPatientBySSN(patientSSNSearch.getText());
+            }
+
+            patientTable.setParent((View) patient);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    //Delete an employee with a given employee Id fromd DB
+//    @FXML
+//    private void deletePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+//        try {
+//            PatientDAO.deletePatient(patientID.getText());
+//        } catch (SQLException e) {
+//            throw e;
+//        }
+//    }
+
+//    @FXML
+//    private void updatePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+//        try {
+//            PatientDAO.editPatient(patientID.getText(), pa);
+//        } catch (SQLException e) {
+//            throw e;
+//        }
+//    }
+>>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
 
             patientTable.setItems(patients);
         } catch (SQLException e) {
