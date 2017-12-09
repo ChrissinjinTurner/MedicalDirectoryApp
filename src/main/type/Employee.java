@@ -3,8 +3,7 @@ package main.type;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
-import java.util.Calendar;
-import java.sql.Date;
+import java.util.Date;
 
 public class Employee {
 
