@@ -10,9 +10,13 @@ import java.util.Date;
 =======
 import javafx.beans.property.StringProperty;
 
+<<<<<<< HEAD
 import java.util.Calendar;
 import java.sql.Date;
 >>>>>>> f0d9824... Fixed Employee and EmployeeDAO reg_date
+=======
+import java.util.Date;
+>>>>>>> 574bd49... Fixed Employee sql.date --> util.date
 
 public class Employee {
 
