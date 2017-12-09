@@ -3,8 +3,7 @@ package main.type;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
-import java.util.Calendar;
-import java.sql.Date;
+import java.util.Date;
 
 public class Employee {
 
@@ -27,6 +26,8 @@ public class Employee {
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.type = type;
+        this.registrationDate = registrationDate;
     }
 
     public int getId() {
