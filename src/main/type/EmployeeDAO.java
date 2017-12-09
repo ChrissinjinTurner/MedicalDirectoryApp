@@ -23,7 +23,7 @@ public class EmployeeDAO {
     }
 
     /**
-     * @ToDO
+     * I think this is fixed
      * @param resultSet
      * @return
      * @throws SQLException
