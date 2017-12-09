@@ -1,22 +1,18 @@
 package main.controller;
 
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import main.type.Doctor;
 import main.type.Nurse;
 import main.type.Patient;
-import main.type.PatientDAO;
 
 import javax.swing.text.TableView;
-import javax.swing.text.View;
 import java.awt.*;
-import java.sql.SQLException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class DoctorController {
+public class NurseController {
+
     @FXML
     private TextField patientFirstName;
     @FXML
@@ -28,7 +24,7 @@ public class DoctorController {
     @FXML
     private TextField patientLastName;
     @FXML
-    private TableView patientTable;
+    private TableView table;
     @FXML
     private TableColumn<Patient, Integer> patientIDtable;
     @FXML
@@ -56,10 +52,6 @@ public class DoctorController {
     @FXML
     private TextField patientWeight;
     @FXML
-    private TextField doctorLicense;
-    @FXML
-    private TextField nurseID;
-    @FXML
     private TextField patientCurrentCondition;
     @FXML
     private TextField patientDateOfRegistration;
@@ -70,14 +62,13 @@ public class DoctorController {
     @FXML
     private TextField patientLastNameSearch;
 
-
     //for multithreading
-    private Executor exec;
+    private Executor execute;
 
     @FXML
     private void intitialize(){
         //For multithreading: Create executor that uses daemon threads:
-        exec = Executors.newCachedThreadPool((runnable) -> {
+        execute = Executors.newCachedThreadPool((runnable) -> {
             Thread t = new Thread (runnable);
             t.setDaemon(true);
             return t;
@@ -96,64 +87,4 @@ public class DoctorController {
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 
     }
-
-    //Insert an employee to the DB
-    @FXML
-    private void insertPatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-        try {
-            Double weight = Double.parseDouble(patientWeight.getText());
-            Double height = Double.parseDouble(patientHeight.getText());
-            Integer doctor = Integer.parseInt(doctorLicense.getText());
-            Integer nurse = Integer.parseInt(nurseID.getText());
-            PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
-                    patientDOB.getText(),weight,height, doctor,nurse,patientCurrentCondition.getText());
-        } catch (SQLException e) {
-            throw e;
-        }
-    }
-
-    @FXML
-    private void searchPatient (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
-        try {
-            //Get Employee information
-            ObservableList patient = null;
-            if (patientFirstNameSearch == null && patientLastNameSearch == null) {
-                patient = PatientDAO.getPatient(patientFirstNameSearch.getText(), patientLastNameSearch.getText(), patientSSNSearch.getText());
-            } else if (patientLastNameSearch == null && patientSSNSearch == null) {
-                patient = PatientDAO.getPatientByFirstName(patientFirstNameSearch.getText());
-            } else if (patientFirstNameSearch == null && patientSSNSearch == null){
-                patient = PatientDAO.getPatientByLastName(patientLastNameSearch.getText());
-            } else {
-                patient = (ObservableList) PatientDAO.getPatientBySSN(patientSSNSearch.getText());
-            }
-
-            patientTable.setParent((View) patient);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw e;
-        }
-    }
-
-    //Delete an employee with a given employee Id fromd DB
-//    @FXML
-//    private void deletePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-//        try {
-//            PatientDAO.deletePatient(patientID.getText());
-//        } catch (SQLException e) {
-//            throw e;
-//        }
-//    }
-
-//    @FXML
-//    private void updatePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-//        try {
-//            PatientDAO.editPatient(patientID.getText(), pa);
-//        } catch (SQLException e) {
-//            throw e;
-//        }
-//    }
-
-
-
-
 }
