@@ -18,10 +18,10 @@ public class Main {
         Employee nurse = EmployeeDAO.getEmployee(2);
         String currentCondition = "Healthy";
 
-        //PatientDAO.addPatient(firstName, lastName, gender, ssn, dob, weight, height, doctor, nurse, currentCondition);
+        PatientDAO.addPatient(firstName, lastName, gender, ssn, dob, weight, height, "1", "234", currentCondition);
 //        PatientDAO.editPatient(1, firstName, lastName, gender, "123-456-7890",
-//                dob, weight, height, doctor, nurse, currentCondition);
-        PatientDAO.deletePatient(1);
+//                dob, weight, height, doctor, nurse, currentCondition);//
+// PatientDAO.deletePatient(1);
     }
 
 }
