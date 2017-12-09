@@ -23,7 +23,7 @@ public class EmployeeDAO {
     }
 
     /**
-     * @ToDO
+     * I think this is fixed
      * @param resultSet
      * @return
      * @throws SQLException
@@ -40,7 +40,7 @@ public class EmployeeDAO {
             employee.setFirstName(resultSet.getString("firstName"));
             employee.setLastName(resultSet.getString("lastName"));
             employee.setType(resultSet.getInt("employeeType"));
-            //employee.setRegistrationDate(resultSet.getDate("reg_date"));
+            employee.setRegistrationDate(resultSet.getDate("reg_date"));
         }
         return employee;
     }
