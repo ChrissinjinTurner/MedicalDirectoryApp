@@ -4,14 +4,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
+import javafx.scene.control.DatePicker;
 import main.type.Doctor;
 import main.type.Nurse;
 import main.type.Patient;
 import main.type.PatientDAO;
 
-import javax.swing.text.TableView;
-import javax.swing.text.View;
-import java.awt.*;
 import java.sql.SQLException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -52,7 +52,7 @@ public class DoctorController {
     @FXML
     private TableColumn<Patient, String> conditionTable;
     @FXML
-    private TextField patientDOB;
+    private DatePicker patientDOB;
     @FXML
     private TextField patientWeight;
     @FXML
@@ -62,7 +62,7 @@ public class DoctorController {
     @FXML
     private TextField patientCurrentCondition;
     @FXML
-    private TextField patientDateOfRegistration;
+    private DatePicker patientDateOfRegistration;
     @FXML
     private TextField patientFirstNameSearch;
     @FXML
@@ -106,7 +106,7 @@ public class DoctorController {
             Integer doctor = Integer.parseInt(doctorLicense.getText());
             Integer nurse = Integer.parseInt(nurseID.getText());
             PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
-                    patientDOB.getText(),weight,height, doctor,nurse,patientCurrentCondition.getText());
+                    patientDOB.toString(),weight,height, doctor,nurse,patientCurrentCondition.getText());
         } catch (SQLException e) {
             throw e;
         }
@@ -127,7 +127,7 @@ public class DoctorController {
                 patient = (ObservableList) PatientDAO.getPatientBySSN(patientSSNSearch.getText());
             }
 
-            patientTable.setParent((View) patient);
+            patientTable.setItems(patient);
         } catch (SQLException e) {
             e.printStackTrace();
             throw e;
