@@ -13,6 +13,7 @@ import main.type.Patient;
 import main.type.PatientDAO;
 
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -110,7 +111,7 @@ public class DoctorController {
             Integer doctor = Integer.parseInt(doctorLicense.getText());
             Integer nurse = Integer.parseInt(nurseID.getText());
             PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
-                    patientDOB.toString(),weight,height, doctor,nurse,patientCurrentCondition.getText());
+                    patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, doctor,nurse,patientCurrentCondition.getText());
         } catch (SQLException e) {
             throw e;
         }
