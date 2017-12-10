@@ -69,6 +69,10 @@ public class DoctorController {
     private TextField patientSSNSearch;
     @FXML
     private TextField patientLastNameSearch;
+    @FXML
+    private TextField patientID;
+    @FXML
+    private TextField patientUpdateID;
 
 
     //for multithreading
@@ -134,24 +138,30 @@ public class DoctorController {
         }
     }
 
-    //Delete an employee with a given employee Id fromd DB
-//    @FXML
-//    private void deletePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-//        try {
-//            PatientDAO.deletePatient(patientID.getText());
-//        } catch (SQLException e) {
-//            throw e;
-//        }
-//    }
+    @FXML
+    private void deletePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            int id = Integer.parseInt(patientID.getText());
+            PatientDAO.deletePatient(id);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
 
-//    @FXML
-//    private void updatePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
-//        try {
-//            PatientDAO.editPatient(patientID.getText(), pa);
-//        } catch (SQLException e) {
-//            throw e;
-//        }
-//    }
+    @FXML
+    private void updatePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            Double weight = Double.parseDouble(patientWeight.getText());
+            Double height = Double.parseDouble(patientHeight.getText());
+            Integer doctor = Integer.parseInt(doctorLicense.getText());
+            Integer nurse = Integer.parseInt(nurseID.getText());
+            Integer id = Integer.parseInt(patientUpdateID.getText());
+            PatientDAO.editPatient(id,patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
+                    patientDOB.toString(),weight,height, doctor,nurse,patientCurrentCondition.getText());
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
 
 
 
