@@ -176,7 +176,11 @@ public class DoctorController {
 >>>>>>> b5d0d58... fixed errors in both our scenese and controllers
 =======
                     patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, doctor,nurse,patientCurrentCondition.getText());
+<<<<<<< HEAD
 >>>>>>> 8f5abc9... Add now works with Application
+=======
+            patientTable.setItems(PatientDAO.getPatients());
+>>>>>>> a1bcc16... Added functionality to the table (hopefully)
         } catch (SQLException e) {
             throw e;
         }
@@ -254,6 +258,7 @@ public class DoctorController {
         try {
             int id = Integer.parseInt(patientID.getText());
             PatientDAO.deletePatient(id);
+            patientTable.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
 >>>>>>> 2f36310... Addition of Main, and Controller
             throw e;
@@ -279,6 +284,7 @@ public class DoctorController {
             Integer id = Integer.parseInt(patientUpdateID.getText());
             PatientDAO.editPatient(id,patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
                     patientDOB.toString(),weight,height, doctor,nurse,patientCurrentCondition.getText());
+            patientTable.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
             throw e;
 >>>>>>> 2f36310... Addition of Main, and Controller
