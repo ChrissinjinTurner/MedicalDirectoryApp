@@ -5,8 +5,9 @@ import javafx.scene.control.TableColumn;
 import main.type.Doctor;
 import main.type.Nurse;
 import main.type.Patient;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
 
-import java.awt.*;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 

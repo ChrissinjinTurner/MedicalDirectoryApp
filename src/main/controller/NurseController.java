@@ -1,13 +1,14 @@
 package main.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import main.type.Doctor;
 import main.type.Nurse;
 import main.type.Patient;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
 
-import javax.swing.text.TableView;
-import java.awt.*;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -48,13 +49,13 @@ public class NurseController {
     @FXML
     private TableColumn<Patient, String> conditionTable;
     @FXML
-    private TextField patientDOB;
+    private DatePicker patientDOB;
     @FXML
     private TextField patientWeight;
     @FXML
     private TextField patientCurrentCondition;
     @FXML
-    private TextField patientDateOfRegistration;
+    private DatePicker patientDateOfRegistration;
     @FXML
     private TextField patientFirstNameSearch;
     @FXML
