@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -9,6 +12,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <AnchorPane fx:id="doctorPane" prefHeight="733.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.DoctorController">
    <children>
@@ -31,6 +35,9 @@
       <TableView fx:id="patientTable" editable="true" layoutX="8.0" layoutY="296.0" prefHeight="367.0" prefWidth="925.0" tableMenuButtonVisible="true">
 =======
 <AnchorPane prefHeight="733.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.DoctorController">
+=======
+<AnchorPane prefHeight="733.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.DoctorController">
+>>>>>>> 2f36310... Addition of Main, and Controller
    <children>
       <TextField fx:id="patientFirstName" layoutX="23.0" layoutY="61.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
       <TextField fx:id="patientHeight" layoutX="452.0" layoutY="61.0" prefHeight="12.0" prefWidth="113.0" promptText="Height" />
@@ -84,7 +91,12 @@
 =======
       <Button fx:id="deleteButton" layoutX="476.0" layoutY="651.0" mnemonicParsing="false" onAction="#deletePatient" text="Delete" />
       <Button fx:id="updateButton" alignment="CENTER" layoutX="727.0" layoutY="134.0" mnemonicParsing="false" onAction="#updatePatient" text="Update Patient" />
+<<<<<<< HEAD
       <TextField fx:id="patientSSNSearch1" layoutX="338.0" layoutY="651.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID " />
 >>>>>>> b5d0d58... fixed errors in both our scenese and controllers
+=======
+      <TextField fx:id="patientID" layoutX="338.0" layoutY="651.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID " />
+      <TextField fx:id="patientUpdateID" layoutX="575.0" layoutY="97.0" prefHeight="27.0" prefWidth="58.0" promptText="ID" />
+>>>>>>> 2f36310... Addition of Main, and Controller
    </children>
 </AnchorPane>

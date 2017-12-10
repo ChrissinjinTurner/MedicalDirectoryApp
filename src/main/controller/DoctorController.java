@@ -220,6 +220,7 @@ public class DoctorController {
         }
     }
 
+<<<<<<< HEAD
     //Delete an employee with a given employee Id fromd DB
 //    @FXML
 //    private void deletePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
@@ -243,11 +244,20 @@ public class DoctorController {
             patientTable.setItems(patients);
         } catch (SQLException e) {
             e.printStackTrace();
+=======
+    @FXML
+    private void deletePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            int id = Integer.parseInt(patientID.getText());
+            PatientDAO.deletePatient(id);
+        } catch (SQLException e) {
+>>>>>>> 2f36310... Addition of Main, and Controller
             throw e;
         }
     }
 
     @FXML
+<<<<<<< HEAD
     private void searchPatients(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
             ObservableList<Patient> patients = FXCollections.observableArrayList();
@@ -255,6 +265,19 @@ public class DoctorController {
             patientTable.setItems(patients);
         } catch (SQLException e) {
             e.printStackTrace();
+=======
+    private void updatePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            Double weight = Double.parseDouble(patientWeight.getText());
+            Double height = Double.parseDouble(patientHeight.getText());
+            Integer doctor = Integer.parseInt(doctorLicense.getText());
+            Integer nurse = Integer.parseInt(nurseID.getText());
+            Integer id = Integer.parseInt(patientUpdateID.getText());
+            PatientDAO.editPatient(id,patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
+                    patientDOB.toString(),weight,height, doctor,nurse,patientCurrentCondition.getText());
+        } catch (SQLException e) {
+            throw e;
+>>>>>>> 2f36310... Addition of Main, and Controller
         }
     }
 
