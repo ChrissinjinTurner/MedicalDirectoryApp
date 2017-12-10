@@ -112,6 +112,7 @@ public class DoctorController {
             Integer nurse = Integer.parseInt(nurseID.getText());
             PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
                     patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, doctor,nurse,patientCurrentCondition.getText());
+            patientTable.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
             throw e;
         }
@@ -144,6 +145,7 @@ public class DoctorController {
         try {
             int id = Integer.parseInt(patientID.getText());
             PatientDAO.deletePatient(id);
+            patientTable.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
             throw e;
         }
@@ -159,6 +161,7 @@ public class DoctorController {
             Integer id = Integer.parseInt(patientUpdateID.getText());
             PatientDAO.editPatient(id,patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
                     patientDOB.toString(),weight,height, doctor,nurse,patientCurrentCondition.getText());
+            patientTable.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
             throw e;
         }
