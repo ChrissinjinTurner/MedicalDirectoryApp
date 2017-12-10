@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 >>>>>>> 27abdf4... Fixed broken stuff done by Chris
 import javafx.scene.control.TableColumn;
 <<<<<<< HEAD
+<<<<<<< HEAD
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.DatePicker;
@@ -20,15 +21,23 @@ import javafx.scene.layout.AnchorPane;
 import main.type.*;
 
 =======
+=======
+import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
+import javafx.scene.control.DatePicker;
+>>>>>>> b5d0d58... fixed errors in both our scenese and controllers
 import main.type.Doctor;
 import main.type.Nurse;
 import main.type.Patient;
 import main.type.PatientDAO;
 
+<<<<<<< HEAD
 import javax.swing.text.TableView;
 import javax.swing.text.View;
 import java.awt.*;
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
+=======
+>>>>>>> b5d0d58... fixed errors in both our scenese and controllers
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Executor;
@@ -84,6 +93,11 @@ public class DoctorController {
     @FXML
     private TextField patientCurrentCondition;
     @FXML
+<<<<<<< HEAD
+=======
+    private DatePicker patientDateOfRegistration;
+    @FXML
+>>>>>>> b5d0d58... fixed errors in both our scenese and controllers
     private TextField patientFirstNameSearch;
     @FXML
     private TextField patientSSNSearch;
@@ -153,8 +167,12 @@ public class DoctorController {
             patientTable.setItems(PatientDAO.getPatients());
 =======
             PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
+<<<<<<< HEAD
                     patientDOB.getText(),weight,height, doctor,nurse,patientCurrentCondition.getText());
 >>>>>>> 27abdf4... Fixed broken stuff done by Chris
+=======
+                    patientDOB.toString(),weight,height, doctor,nurse,patientCurrentCondition.getText());
+>>>>>>> b5d0d58... fixed errors in both our scenese and controllers
         } catch (SQLException e) {
             throw e;
         }
@@ -195,7 +213,7 @@ public class DoctorController {
                 patient = (ObservableList) PatientDAO.getPatientBySSN(patientSSNSearch.getText());
             }
 
-            patientTable.setParent((View) patient);
+            patientTable.setItems(patient);
         } catch (SQLException e) {
             e.printStackTrace();
             throw e;

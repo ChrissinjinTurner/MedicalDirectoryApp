@@ -16,14 +16,20 @@ import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 =======
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import main.type.Doctor;
 import main.type.Nurse;
 import main.type.Patient;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
 
+<<<<<<< HEAD
 import javax.swing.text.TableView;
 import java.awt.*;
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
+=======
+>>>>>>> b5d0d58... fixed errors in both our scenese and controllers
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -77,16 +83,24 @@ public class NurseController {
     @FXML
     private TableColumn<Patient, String> conditionTable;
     @FXML
+<<<<<<< HEAD
     private TextField patientDOB;
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
+=======
+    private DatePicker patientDOB;
+>>>>>>> b5d0d58... fixed errors in both our scenese and controllers
     @FXML
     private TextField patientWeight;
     @FXML
     private TextField patientCurrentCondition;
     @FXML
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     private TextField patientDateOfRegistration;
+=======
+    private DatePicker patientDateOfRegistration;
+>>>>>>> b5d0d58... fixed errors in both our scenese and controllers
     @FXML
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
     private TextField patientFirstNameSearch;

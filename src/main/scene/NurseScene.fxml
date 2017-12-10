@@ -32,8 +32,12 @@
         <TextField fx:id="patientGender" layoutX="221.0" layoutY="61.0" prefHeight="27.0" prefWidth="62.0" promptText="Gender" />
         <TextField fx:id="PatientSSN" layoutX="23.0" layoutY="97.0" prefHeight="12.0" prefWidth="113.0" promptText="Patient SSN" />
         <TextField fx:id="patientLastName" layoutX="121.0" layoutY="61.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
+<<<<<<< HEAD
         <Button fx:id="addNewPatientButton" layoutX="691.0" layoutY="134.0" mnemonicParsing="false" text="Add Patient" />
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
+=======
+        <Button fx:id="addNewPatientButton" layoutX="715.0" layoutY="97.0" mnemonicParsing="false" text="Add Patient" />
+>>>>>>> b5d0d58... fixed errors in both our scenese and controllers
         <TableView fx:id="table" layoutX="8.0" layoutY="268.0" prefHeight="367.0" prefWidth="859.0">
             <columns>
                 <TableColumn fx:id="patientIDTable" prefWidth="51.0" text="ID" />
@@ -52,10 +56,17 @@
         <Label layoutX="384.0" layoutY="30.0" text="Add New Patient" />
         <Separator layoutX="-6.0" layoutY="177.0" prefHeight="0.0" prefWidth="883.0" />
         <Label layoutX="21.0" layoutY="186.0" text="Search Patient" />
+<<<<<<< HEAD
         <Button fx:id="searchButton" layoutX="335.0" layoutY="214.0" mnemonicParsing="false" onAction="#searchPatient" text="Search" />
         <Button fx:id="deleteButton" layoutX="509.0" layoutY="651.0" mnemonicParsing="false" onAction="#deletePatient" text="Delete" />
         <Button fx:id="updateButton" alignment="CENTER" layoutX="494.0" layoutY="134.0" mnemonicParsing="false" onAction="#updatePatient" text="Update Patient" />
         <Button fx:id="searchButton1" layoutX="402.0" layoutY="214.0" mnemonicParsing="false" onAction="#searchPatients" text="Display All Patients" />
       <Label layoutX="36.0" layoutY="139.0" text="Enter Patient ID and Corresponding Data to Update:" />
+=======
+        <Button fx:id="searchButton" layoutX="335.0" layoutY="214.0" mnemonicParsing="false" text="Search" />
+        <Button fx:id="deleteButton" layoutX="509.0" layoutY="651.0" mnemonicParsing="false" text="Delete" />
+        <Button fx:id="updateButton" alignment="CENTER" layoutX="705.0" layoutY="134.0" mnemonicParsing="false" text="Update Patient" />
+      <TextField fx:id="patientSSNSearch1" layoutX="375.0" layoutY="651.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID" />
+>>>>>>> b5d0d58... fixed errors in both our scenese and controllers
     </children>
 </AnchorPane>

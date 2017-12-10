@@ -20,9 +20,14 @@ import javafx.scene.control.TableColumn;
 import main.type.Doctor;
 import main.type.Nurse;
 import main.type.Patient;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
 
+<<<<<<< HEAD
 import java.awt.*;
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
+=======
+>>>>>>> b5d0d58... fixed errors in both our scenese and controllers
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
