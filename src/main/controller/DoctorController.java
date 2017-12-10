@@ -168,11 +168,15 @@ public class DoctorController {
 =======
             PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
 <<<<<<< HEAD
+<<<<<<< HEAD
                     patientDOB.getText(),weight,height, doctor,nurse,patientCurrentCondition.getText());
 >>>>>>> 27abdf4... Fixed broken stuff done by Chris
 =======
                     patientDOB.toString(),weight,height, doctor,nurse,patientCurrentCondition.getText());
 >>>>>>> b5d0d58... fixed errors in both our scenese and controllers
+=======
+                    patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, doctor,nurse,patientCurrentCondition.getText());
+>>>>>>> 8f5abc9... Add now works with Application
         } catch (SQLException e) {
             throw e;
         }
