@@ -1,7 +1,9 @@
 package main;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -9,39 +11,45 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application{
-    //This is our PrimaryStage (It contains everything)
+
     private Stage primaryStage;
 
-    //Shows the employee operations view inside the root layout.
-    public void showEmployeeView() {
-        try {
-            //First, load EmployeeView from EmployeeView.fxml
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(Main.class.getResource("scene/DoctorScene.fxml"));
-            AnchorPane employeeOperationsView = (AnchorPane) loader.load();
+    public static void main(String[] args) {
+        launch(args);
+    }
 
-            Scene scene = new Scene(employeeOperationsView);
-            primaryStage.setScene(scene);
-            primaryStage.setResizable(false);
-            primaryStage.show();
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        this.primaryStage = primaryStage;
+        this.primaryStage.setTitle("Software Quality Assurance Project");
+        showLoginView();
+    }
+
+    private void showLoginView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("scene/LoginScene.fxml"));
+            prepScene(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        //1) Declare a primary stage (Everything will be on this stage)
-        this.primaryStage = primaryStage;
 
-        //Optional: Set a title for primary stage
-        this.primaryStage.setTitle("Software Quality Assurance Project");
-
-        //2) Display the EmployeeOperations View
-        showEmployeeView();
+    private void showEmployeeView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Main.class.getResource("scene/DoctorScene.fxml"));
+            prepScene(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    private void prepScene(Parent parent) {
+        Scene myScene = new Scene(parent);
+        primaryStage.setScene(myScene);
+        primaryStage.setResizable(false);
+        primaryStage.show();
     }
 
 }
