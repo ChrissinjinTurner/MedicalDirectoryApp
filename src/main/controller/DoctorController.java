@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.DatePicker;
 import main.type.*;
 
+import javax.swing.*;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Executor;
@@ -148,6 +149,17 @@ public class DoctorController {
     }
 
     @FXML
+    private void searchPatients(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            ObservableList<Patient> patients = FXCollections.observableArrayList();
+            patients = PatientDAO.getPatients();
+            patientTable.setItems(patients);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void deletePatient(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             int id = Integer.parseInt(patientID.getText());
@@ -167,7 +179,7 @@ public class DoctorController {
             Integer nurse = Integer.parseInt(nurseID.getText());
             Integer id = Integer.parseInt(patientUpdateID.getText());
             PatientDAO.editPatient(id,patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
-                    patientDOB.toString(),weight,height, doctor,nurse,patientCurrentCondition.getText());
+                    patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, doctor,nurse,patientCurrentCondition.getText());
             patientTable.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
             throw e;
