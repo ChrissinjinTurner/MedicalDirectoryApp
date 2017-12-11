@@ -85,8 +85,6 @@ public class PatientDAO {
         }
     }
 
-    pu
-
     // Get a patient from the database (READ)
     public static ObservableList<Patient> getPatientByLastName(String lastName) throws SQLException, ClassNotFoundException {
         String getQuery = "SELECT * FROM patients WHERE lastName = '" + lastName + "'";
