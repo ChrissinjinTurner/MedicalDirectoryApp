@@ -43,7 +43,7 @@ public class PatientDAO {
 
     // Get a patient from the database (READ)
     public static ObservableList<Patient> getPatient(String firstName, String lastName, String ssn) throws SQLException, ClassNotFoundException {
-        String getQuery = "SELECT * FROM patients WHERE firstName = '" + firstName + "', lastName = '" + lastName + "'," +
+        String getQuery = "SELECT * FROM patients WHERE firstName = '" + firstName + "' AND lastName = '" + lastName + "' AND" +
                 " ssn = '" + ssn + "'";
 
         // Attempt to get the patient
@@ -59,7 +59,7 @@ public class PatientDAO {
 
     // Get a patient by first and last name
     public static ObservableList<Patient> getPatientByFirstAndLastName(String firstName, String lastName) throws SQLException, ClassNotFoundException {
-        String getQuery = "SELECT * FROM patients WHERE firstName = '" + firstName + "', lastName = '" + lastName + "'";
+        String getQuery = "SELECT * FROM patients WHERE firstName = '" + firstName + "' AND lastName = '" + lastName + "'";
 
         // Attempt to get the patient
         try {

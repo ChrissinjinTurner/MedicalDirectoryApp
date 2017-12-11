@@ -1,5 +1,6 @@
 package main.controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,11 +43,11 @@ public class DoctorController {
     @FXML
     private TableColumn<Patient, Double> patientWeightTable;
     @FXML
-    private TableColumn<Patient, String> PatientSSNTable;
+    private TableColumn<Patient, String> patientSSNTable;
     @FXML
-    private TableColumn<Doctor, Integer> doctorLicenseTable;
+    private TableColumn<Patient, String> doctorLicenseTable;
     @FXML
-    private TableColumn<Nurse, Integer> nurseIDTable;
+    private TableColumn<Patient, String> nurseIDTable;
     @FXML
     private TableColumn<Patient, String> conditionTable;
     @FXML
@@ -75,7 +76,7 @@ public class DoctorController {
     private Executor executor;
 
     @FXML
-    private void intitialize(){
+    private void initialize(){
         //For multithreading: Create executor that uses daemon threads:
         executor = Executors.newCachedThreadPool((runnable) -> {
             Thread t = new Thread (runnable);
@@ -90,16 +91,22 @@ public class DoctorController {
         patientDOBTable.setCellValueFactory(cellData -> cellData.getValue().dobProperty());
         patientHeightTable.setCellValueFactory(cellData -> cellData.getValue().heightProperty().asObject());
         patientWeightTable.setCellValueFactory(cellData -> cellData.getValue().weightProperty().asObject());
-        PatientSSNTable.setCellValueFactory(cellData -> cellData.getValue().ssnProperty());
-        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().licenseProperty().asObject());
-        nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+        patientSSNTable.setCellValueFactory(cellData -> cellData.getValue().ssnProperty());
+        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().getDoctor().lastNameProperty());
+        nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().getNurse().lastNameProperty());
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
+
+        try {
+            patientTable.setItems(PatientDAO.getPatients());
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
     //Insert an employee to the DB
     @FXML
-    private void insertPatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    private void insertPatient(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             Double weight = Double.parseDouble(patientWeight.getText());
             Double height = Double.parseDouble(patientHeight.getText());
@@ -117,18 +124,18 @@ public class DoctorController {
     private void searchPatient(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
             //Get Employee information
-            ObservableList<Patient> patients = null;
+            ObservableList<Patient> patients = FXCollections.observableArrayList();
             if (patientFirstNameSearch.getText().trim().length() == 0 && patientLastNameSearch.getText().trim().length() == 0
                     && patientSSNSearch.getText().trim().length() == 0) {
                 patients = PatientDAO.getPatients();
-            } else if (patientFirstNameSearch.getText() == null && patientLastNameSearch.getText() == null) {
+            } else if (patientFirstNameSearch.getText().trim().length() == 0 && patientLastNameSearch.getText().trim().length() == 0) {
                 patients.add(PatientDAO.getPatientBySSN(patientSSNSearch.getText()));
-            } else if (patientLastNameSearch.getText() == null && patientSSNSearch.getText() == null) {
+            } else if (patientLastNameSearch.getText().trim().length() == 0 && patientSSNSearch.getText().trim().length() == 0) {
                 patients = PatientDAO.getPatientByFirstName(patientFirstNameSearch.getText());
-            } else if (patientFirstNameSearch.getText() == null && patientSSNSearch.getText() == null){
+            } else if (patientFirstNameSearch.getText().trim().length() == 0 && patientSSNSearch.getText().trim().length() == 0){
                 patients = PatientDAO.getPatientByLastName(patientLastNameSearch.getText());
-            } else if (patientSSNSearch.getText() == null) {
-                patients = PatientDAO.getPatientByFirstAndLastName(patientFirstName.getText(), patientLastName.getText());
+            } else if (patientSSNSearch.getText().trim().length() == 0) {
+                patients = PatientDAO.getPatientByFirstAndLastName(patientFirstNameSearch.getText(), patientLastNameSearch.getText());
             } else {
                 patients = PatientDAO.getPatient(patientFirstNameSearch.getText(), patientLastNameSearch.getText(), patientSSNSearch.getText());
             }
