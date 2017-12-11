@@ -24,7 +24,7 @@
       <Button fx:id="addNewPatientButton" layoutX="737.0" layoutY="97.0" mnemonicParsing="false" onAction="#insertPatient" text="Add Patient" />
       <TableView fx:id="patientTable" layoutX="8.0" layoutY="268.0" prefHeight="367.0" prefWidth="859.0">
         <columns>
-          <TableColumn fx:id="patientIDtable" prefWidth="51.0" text="ID" />
+          <TableColumn fx:id="patientIDTable" prefWidth="51.0" text="ID" />
           <TableColumn fx:id="patientFirstNameTable" prefWidth="87.0" text="First Name" />
             <TableColumn fx:id="patientLastNameTable" prefWidth="87.0" text="Last Name" />
             <TableColumn fx:id="patientGenderTable" prefWidth="53.0" text="Gender" />
