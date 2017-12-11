@@ -45,6 +45,7 @@
         <Button fx:id="searchButton" layoutX="335.0" layoutY="214.0" mnemonicParsing="false" text="Search" />
         <Button fx:id="deleteButton" layoutX="509.0" layoutY="651.0" mnemonicParsing="false" text="Delete" />
         <Button fx:id="updateButton" alignment="CENTER" layoutX="705.0" layoutY="134.0" mnemonicParsing="false" text="Update Patient" />
-      <TextField fx:id="patientSSNSearch1" layoutX="375.0" layoutY="651.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID" />
+        <TextField fx:id="patientSSNSearch1" layoutX="375.0" layoutY="651.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID" />
+        <TextField fx:id="patientUpdateID" layoutX="575.0" layoutY="97.0" prefHeight="27.0" prefWidth="58.0" promptText="ID" />
     </children>
 </AnchorPane>

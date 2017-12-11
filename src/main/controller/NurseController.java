@@ -1,5 +1,7 @@
 package main.controller;
 
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
@@ -8,7 +10,10 @@ import main.type.Nurse;
 import main.type.Patient;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
+import main.type.PatientDAO;
 
+import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -62,6 +67,8 @@ public class NurseController {
     private TextField patientSSNSearch;
     @FXML
     private TextField patientLastNameSearch;
+    @FXML
+    private TextField patientUpdateID;
 
     //for multithreading
     private Executor execute;
@@ -87,5 +94,66 @@ public class NurseController {
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 
+    }
+
+    //Insert an employee to the DB
+    @FXML
+    private void insertPatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            Double weight = Double.parseDouble(patientWeight.getText());
+            Double height = Double.parseDouble(patientHeight.getText());
+            PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
+                    patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, 1,2,patientCurrentCondition.getText());
+            table.setItems(PatientDAO.getPatients());
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    @FXML
+    private void searchPatient (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            //Get Employee information
+            ObservableList patient = null;
+            if (patientFirstNameSearch == null && patientLastNameSearch == null) {
+                patient = PatientDAO.getPatient(patientFirstNameSearch.getText(), patientLastNameSearch.getText(), patientSSNSearch.getText());
+            } else if (patientLastNameSearch == null && patientSSNSearch == null) {
+                patient = PatientDAO.getPatientByFirstName(patientFirstNameSearch.getText());
+            } else if (patientFirstNameSearch == null && patientSSNSearch == null){
+                patient = PatientDAO.getPatientByLastName(patientLastNameSearch.getText());
+            } else {
+                patient = (ObservableList) PatientDAO.getPatientBySSN(patientSSNSearch.getText());
+            }
+
+            table.setItems(patient);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @FXML
+    private void deletePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            int id = Integer.parseInt(patientUpdateID.getText());
+            PatientDAO.deletePatient(id);
+            table.setItems(PatientDAO.getPatients());
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    @FXML
+    private void updatePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            Double weight = Double.parseDouble(patientWeight.getText());
+            Double height = Double.parseDouble(patientHeight.getText());
+            Integer id = Integer.parseInt(patientUpdateID.getText());
+            PatientDAO.editPatient(id,patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
+                    patientDOB.toString(),weight,height, 1,2,patientCurrentCondition.getText());
+            table.setItems(PatientDAO.getPatients());
+        } catch (SQLException e) {
+            throw e;
+        }
     }
 }
