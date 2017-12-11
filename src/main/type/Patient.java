@@ -1,8 +1,6 @@
 package main.type;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -23,9 +21,21 @@ public class Patient {
     private Date dateRegistered;
 
     public Patient() {
-
+        this.id = new SimpleIntegerProperty();
+        this.firstName = new SimpleStringProperty();
+        this.lastName = new SimpleStringProperty();
+        this.gender = new SimpleStringProperty();
+        this.ssn = new SimpleStringProperty();
+        this.dob = new SimpleStringProperty();
+        this.weight = new SimpleDoubleProperty();
+        this.height = new SimpleDoubleProperty();
+        this.doctor = new Employee();
+        this.nurse = new Employee();
+        this.currentCondition = new SimpleStringProperty();
+        this.dateRegistered = new Date();
     }
-    public Patient(IntegerProperty id, StringProperty firstName, StringProperty lastName, StringProperty gender, StringProperty ssn, StringProperty dob, DoubleProperty weight, DoubleProperty height, Employee doctor, Employee nurse, StringProperty currentCondition, Date dateRegistered) {
+
+    /*public Patient(IntegerProperty id, StringProperty firstName, StringProperty lastName, StringProperty gender, StringProperty ssn, StringProperty dob, DoubleProperty weight, DoubleProperty height, Employee doctor, Employee nurse, StringProperty currentCondition, Date dateRegistered) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -37,6 +47,21 @@ public class Patient {
         this.doctor = doctor;
         this.nurse = nurse;
         this.currentCondition = currentCondition;
+        this.dateRegistered = dateRegistered;
+    }*/
+
+    public Patient(int id, String firstName, String lastName, String gender, String ssn, String dob, double weight, double height, Employee doctor, Employee nurse, String currentCondition, Date dateRegistered) {
+        this.id = new SimpleIntegerProperty(id);
+        this.firstName = new SimpleStringProperty(firstName);
+        this.lastName = new SimpleStringProperty(lastName);
+        this.gender = new SimpleStringProperty(gender);
+        this.ssn = new SimpleStringProperty(ssn);
+        this.dob = new SimpleStringProperty(dob);
+        this.weight = new SimpleDoubleProperty(weight);
+        this.height = new SimpleDoubleProperty(height);
+        this.doctor = doctor;
+        this.nurse = nurse;
+        this.currentCondition = new SimpleStringProperty(currentCondition);
         this.dateRegistered = dateRegistered;
     }
 
