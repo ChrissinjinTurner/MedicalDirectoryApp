@@ -44,7 +44,7 @@ public class PatientDAO {
     // Get a patient from the database (READ)
     public static ObservableList<Patient> getPatient(String firstName, String lastName, String ssn) throws SQLException, ClassNotFoundException {
         String getQuery = "SELECT * FROM patients WHERE firstName = '" + firstName + "', lastName = '" + lastName + "'," +
-                " ssn = '" + ssn;
+                " ssn = '" + ssn + "'";
 
         // Attempt to get the patient
         try {
