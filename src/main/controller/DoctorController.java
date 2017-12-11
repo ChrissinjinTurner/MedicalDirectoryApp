@@ -4,13 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.DatePicker;
+import javafx.scene.layout.AnchorPane;
 import main.type.*;
 
-import javax.swing.*;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Executor;
@@ -185,8 +186,4 @@ public class DoctorController {
             throw e;
         }
     }
-
-
-
-
 }
