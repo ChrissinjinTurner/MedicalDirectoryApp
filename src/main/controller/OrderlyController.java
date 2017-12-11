@@ -2,11 +2,10 @@ package main.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
 import main.type.Doctor;
 import main.type.Nurse;
 import main.type.Patient;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TableView;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -61,4 +60,5 @@ public class OrderlyController {
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 
     }
+
 }
