@@ -1,5 +1,6 @@
 package main.controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,10 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.DatePicker;
-import main.type.Doctor;
-import main.type.Nurse;
-import main.type.Patient;
-import main.type.PatientDAO;
+import main.type.*;
 
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
@@ -135,6 +133,22 @@ public class DoctorController {
         } catch (SQLException e) {
             e.printStackTrace();
             throw e;
+        }
+    }
+
+    @FXML
+    private void patientTable(Patient patient) {
+        ObservableList<Patient> patientData = FXCollections.observableArrayList();
+
+        patientData.add(patient);
+
+        patientTable.setItems(patientData);
+    }
+
+    @FXML
+    private void populatePatientTable(Patient patient) throws ClassNotFoundException {
+        if (patient != null) {
+            patientTable(patient);
         }
     }
 
