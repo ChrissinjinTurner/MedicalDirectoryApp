@@ -28,7 +28,7 @@ public class PatientDAO {
         }
     }
 
-    // Get a patient from the database (READ)
+    // Get all patients from the database (READ)
     public static ObservableList<Patient> getPatients() throws SQLException, ClassNotFoundException {
         String getQuery = "SELECT * FROM patients";
         // Attempt to get the patients
