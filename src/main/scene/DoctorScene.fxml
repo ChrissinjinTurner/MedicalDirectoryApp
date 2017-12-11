@@ -31,7 +31,7 @@
             <TableColumn fx:id="patientDOBTable" prefWidth="85.0" text="DOB" />
             <TableColumn fx:id="patientHeightTable" prefWidth="87.0" text="Height" />
             <TableColumn fx:id="patientWeightTable" prefWidth="75.0" text="Weight" />
-            <TableColumn fx:id="PatientSSNTable" prefWidth="92.0" text="SSN" />
+            <TableColumn fx:id="patientSSNTable" prefWidth="92.0" text="SSN" />
             <TableColumn fx:id="doctorLicenseTable" prefWidth="58.0" text="Doctor" />
             <TableColumn fx:id="nurseIDTable" prefWidth="75.0" text="Nurse" />
             <TableColumn fx:id="conditionTable" prefWidth="104.0" text="Condition" />
