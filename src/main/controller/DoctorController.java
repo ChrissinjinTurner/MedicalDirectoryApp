@@ -63,8 +63,6 @@ public class DoctorController {
     @FXML
     private TextField patientCurrentCondition;
     @FXML
-    private DatePicker patientDateOfRegistration;
-    @FXML
     private TextField patientFirstNameSearch;
     @FXML
     private TextField patientSSNSearch;
