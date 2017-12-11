@@ -9,43 +9,46 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="733.0" prefWidth="872.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.DoctorController">
+<AnchorPane prefHeight="733.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.DoctorController">
    <children>
-      <TextField fx:id="patientFirstName" layoutX="23.0" layoutY="61.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
-      <TextField fx:id="patientLastName" layoutX="121.0" layoutY="61.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
-      <TextField fx:id="patientGender" layoutX="221.0" layoutY="61.0" prefHeight="27.0" prefWidth="62.0" promptText="Gender" />
-      <DatePicker fx:id="patientDOB" layoutX="292.0" layoutY="61.0" prefHeight="27.0" prefWidth="150.0" promptText="Date of Birth" />
-      <TextField fx:id="patientHeight" layoutX="452.0" layoutY="61.0" prefHeight="12.0" prefWidth="113.0" promptText="Height" />
-      <TextField fx:id="patientWeight" layoutX="575.0" layoutY="61.0" prefHeight="12.0" prefWidth="113.0" promptText="Weight" />
-      <TextField fx:id="PatientSSN" layoutX="23.0" layoutY="97.0" prefHeight="12.0" prefWidth="113.0" promptText="Patient SSN" />
-      <TextField fx:id="doctorLicense" layoutX="145.0" layoutY="97.0" prefHeight="27.0" prefWidth="125.0" promptText="Doctor License #" />
-      <TextField fx:id="nurseID" layoutX="279.0" layoutY="97.0" prefHeight="12.0" prefWidth="113.0" promptText="Nurse ID" />
-      <TextField fx:id="patientCurrentCondition" layoutX="25.0" layoutY="134.0" prefHeight="27.0" prefWidth="651.0" promptText="Current Condition" />
-      <Button fx:id="addNewPatientButton" layoutX="737.0" layoutY="97.0" mnemonicParsing="false" onAction="#insertPatient" text="Add Patient" />
-      <TableView fx:id="patientTable" layoutX="8.0" layoutY="268.0" prefHeight="367.0" prefWidth="859.0">
+      <TextField fx:id="patientFirstName" layoutX="135.0" layoutY="59.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
+      <TextField fx:id="patientLastName" layoutX="233.0" layoutY="59.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
+      <TextField fx:id="patientGender" layoutX="333.0" layoutY="59.0" prefHeight="27.0" prefWidth="62.0" promptText="Gender" />
+      <DatePicker fx:id="patientDOB" layoutX="404.0" layoutY="59.0" prefHeight="27.0" prefWidth="150.0" promptText="Date of Birth" />
+      <TextField fx:id="patientHeight" layoutX="564.0" layoutY="59.0" prefHeight="12.0" prefWidth="113.0" promptText="Height (cm)" />
+      <TextField fx:id="patientWeight" layoutX="687.0" layoutY="59.0" prefHeight="12.0" prefWidth="113.0" promptText="Weight (lbs)" />
+      <TextField fx:id="PatientSSN" layoutX="283.0" layoutY="97.0" prefHeight="12.0" prefWidth="113.0" promptText="Patient SSN" />
+      <TextField fx:id="doctorLicense" layoutX="405.0" layoutY="97.0" prefHeight="27.0" prefWidth="125.0" promptText="Doctor License #" />
+      <TextField fx:id="nurseID" layoutX="539.0" layoutY="97.0" prefHeight="12.0" prefWidth="113.0" promptText="Nurse ID" />
+      <TextField fx:id="patientCurrentCondition" alignment="CENTER" layoutX="129.0" layoutY="134.0" prefHeight="27.0" prefWidth="651.0" promptText="Current Condition" />
+      <TextField fx:id="patientFirstNameSearch" layoutX="19.0" layoutY="252.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
+      <TextField fx:id="patientLastNameSearch" layoutX="119.0" layoutY="252.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
+      <TextField fx:id="patientSSNSearch" layoutX="216.0" layoutY="252.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient SSN" />
+      <TextField fx:id="patientID" layoutX="338.0" layoutY="678.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID " />
+      <Button fx:id="addNewPatientButton" layoutX="800.0" layoutY="134.0" mnemonicParsing="false" onAction="#insertPatient" text="Add Patient" />
+      <TableView fx:id="patientTable" editable="true" layoutX="8.0" layoutY="296.0" prefHeight="367.0" prefWidth="925.0" tableMenuButtonVisible="true">
         <columns>
-          <TableColumn fx:id="patientIDTable" prefWidth="51.0" text="ID" />
-          <TableColumn fx:id="patientFirstNameTable" prefWidth="87.0" text="First Name" />
-            <TableColumn fx:id="patientLastNameTable" prefWidth="87.0" text="Last Name" />
-            <TableColumn fx:id="patientGenderTable" prefWidth="53.0" text="Gender" />
-            <TableColumn fx:id="patientDOBTable" prefWidth="85.0" text="DOB" />
-            <TableColumn fx:id="patientHeightTable" prefWidth="87.0" text="Height" />
-            <TableColumn fx:id="patientWeightTable" prefWidth="75.0" text="Weight" />
-            <TableColumn fx:id="patientSSNTable" prefWidth="92.0" text="SSN" />
-            <TableColumn fx:id="doctorLicenseTable" prefWidth="58.0" text="Doctor" />
-            <TableColumn fx:id="nurseIDTable" prefWidth="75.0" text="Nurse" />
-            <TableColumn fx:id="conditionTable" prefWidth="104.0" text="Condition" />
+          <TableColumn fx:id="patientIDTable" editable="false" prefWidth="29.0" text="ID" />
+          <TableColumn fx:id="patientFirstNameTable" editable="false" prefWidth="106.0" text="First Name" />
+            <TableColumn fx:id="patientLastNameTable" editable="false" prefWidth="109.0" text="Last Name" />
+            <TableColumn fx:id="patientGenderTable" editable="false" prefWidth="62.0" text="Gender" />
+            <TableColumn fx:id="patientDOBTable" editable="false" prefWidth="85.0" text="DOB" />
+            <TableColumn fx:id="patientHeightTable" editable="false" prefWidth="64.0" text="Height" />
+            <TableColumn fx:id="patientWeightTable" editable="false" prefWidth="87.0" text="Weight" />
+            <TableColumn fx:id="patientSSNTable" editable="false" prefWidth="103.0" text="SSN" />
+            <TableColumn fx:id="doctorLicenseTable" editable="false" prefWidth="58.0" text="Doctor" />
+            <TableColumn fx:id="nurseIDTable" editable="false" prefWidth="64.0" text="Nurse" />
+            <TableColumn fx:id="conditionTable" editable="false" prefWidth="139.0" text="Condition" />
         </columns>
       </TableView>
-      <Label layoutX="25.0" layoutY="33.0" text="Add New Patient" />
-      <Separator layoutX="-6.0" layoutY="177.0" prefHeight="0.0" prefWidth="883.0" />
-      <TextField fx:id="patientFirstNameSearch" layoutX="19.0" layoutY="214.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
-      <TextField fx:id="patientSSNSearch" layoutX="217.0" layoutY="214.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient SSN" />
-      <TextField fx:id="patientLastNameSearch" layoutX="117.0" layoutY="214.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
-      <Label layoutX="21.0" layoutY="186.0" text="Search Patient" />
-      <Button fx:id="searchButton" layoutX="335.0" layoutY="214.0" mnemonicParsing="false" onAction="#searchPatient" text="Search" />
-      <Button fx:id="deleteButton" layoutX="476.0" layoutY="651.0" mnemonicParsing="false" onAction="#deletePatient" text="Delete" />
-      <Button fx:id="updateButton" alignment="CENTER" layoutX="727.0" layoutY="134.0" mnemonicParsing="false" onAction="#updatePatient" text="Update Patient" />
-      <TextField fx:id="patientID" layoutX="338.0" layoutY="651.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID " />
+      <Label layoutX="424.0" layoutY="34.0" text="Add New Patient" />
+      <Separator layoutX="-6.0" layoutY="212.0" prefHeight="0.0" prefWidth="946.0" />
+      <Label layoutX="21.0" layoutY="223.0" text="Search Patient" />
+      <Button fx:id="searchButton" layoutX="333.0" layoutY="252.0" mnemonicParsing="false" onAction="#searchPatient" text="Search" />
+      <Button fx:id="deleteButton" layoutX="473.0" layoutY="678.0" mnemonicParsing="false" onAction="#deletePatient" text="Delete" />
+      <Button fx:id="updateButton" alignment="CENTER" layoutX="632.0" layoutY="171.0" mnemonicParsing="false" onAction="#updatePatient" text="Update Patient" />
+      <TextField fx:id="patientUpdateID" layoutX="505.0" layoutY="171.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID " />
+      <Button fx:id="searchButton1" layoutX="408.0" layoutY="252.0" mnemonicParsing="false" onAction="#searchPatients" text="Display All Patients" />
+      <Label layoutX="172.0" layoutY="176.0" text="Enter Patient ID and Corresponding Data to Update:" />
    </children>
 </AnchorPane>
