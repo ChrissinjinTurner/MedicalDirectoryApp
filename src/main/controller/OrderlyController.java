@@ -1,16 +1,24 @@
 package main.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import main.type.Doctor;
 import main.type.Nurse;
 import main.type.Patient;
+import main.type.PatientDAO;
 
+import java.sql.SQLException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class OrderlyController {
+    @FXML
+    private TableView patientTable;
     @FXML
     private TableColumn<Patient, Integer> patientIDtable;
     @FXML
@@ -59,6 +67,45 @@ public class OrderlyController {
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 
+        try {
+            patientTable.setItems(PatientDAO.getPatients());
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
+    @FXML
+    private void searchPatient (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            //Get Employee information
+            ObservableList<Patient> patients = FXCollections.observableArrayList();
+            if (patientFirstNameSearch.getText().trim().length() == 0 && patientLastNameSearch.getText().trim().length() == 0) {
+                patients = PatientDAO.getPatients();
+            }else if (patientLastNameSearch.getText().trim().length() == 0) {
+                patients = PatientDAO.getPatientByFirstName(patientFirstNameSearch.getText());
+            } else if (patientFirstNameSearch.getText().trim().length() == 0){
+                patients = PatientDAO.getPatientByLastName(patientLastNameSearch.getText());
+            } else {
+                patients = PatientDAO.getPatientByFirstAndLastName(patientFirstNameSearch.getText(), patientLastNameSearch.getText());
+            }
+
+            patientTable.setItems(patients);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @FXML
+    private void searchPatients(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            ObservableList<Patient> patients = FXCollections.observableArrayList();
+            patients = PatientDAO.getPatients();
+            patientTable.setItems(patients);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
