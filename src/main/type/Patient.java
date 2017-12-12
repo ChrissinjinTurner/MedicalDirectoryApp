@@ -35,21 +35,6 @@ public class Patient {
         this.dateRegistered = new Date();
     }
 
-    /*public Patient(IntegerProperty id, StringProperty firstName, StringProperty lastName, StringProperty gender, StringProperty ssn, StringProperty dob, DoubleProperty weight, DoubleProperty height, Employee doctor, Employee nurse, StringProperty currentCondition, Date dateRegistered) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.ssn = ssn;
-        this.dob = dob;
-        this.weight = weight;
-        this.height = height;
-        this.doctor = doctor;
-        this.nurse = nurse;
-        this.currentCondition = currentCondition;
-        this.dateRegistered = dateRegistered;
-    }*/
-
     public Patient(int id, String firstName, String lastName, String gender, String ssn, String dob, double weight, double height, Employee doctor, Employee nurse, String currentCondition, Date dateRegistered) {
         this.id = new SimpleIntegerProperty(id);
         this.firstName = new SimpleStringProperty(firstName);
