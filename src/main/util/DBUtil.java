@@ -6,7 +6,7 @@ import java.sql.*;
 
 /**
  * DBUtil contains methods to access the MySQL database
- * Methods will be called with the DAO
+ * Methods will be called with the DAOs
  */
 public class DBUtil {
 
