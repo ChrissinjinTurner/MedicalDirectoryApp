@@ -114,7 +114,13 @@ public class DoctorController {
             Double height = Double.parseDouble(patientHeight.getText());
             Integer doctor = Integer.parseInt(doctorLicense.getText());
             Integer nurse = Integer.parseInt(nurseID.getText());
-            PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
+
+            char[] ssnArr = PatientSSN.getText().toCharArray();
+            String ssn = formatSSN(ssnArr);
+
+            PatientDAO.addPatient(patientFirstName.getText().toUpperCase(),
+                    patientLastName.getText().toUpperCase(),
+                    patientGender.getText().toUpperCase(),ssn,
                     patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, doctor,nurse,patientCurrentCondition.getText());
             patientTable.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
@@ -125,7 +131,7 @@ public class DoctorController {
     @FXML
     private void searchPatient(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
-            //Get Employee information
+            //Get Patient information
             ObservableList<Patient> patients = FXCollections.observableArrayList();
             if (patientFirstNameSearch.getText().trim().length() == 0 && patientLastNameSearch.getText().trim().length() == 0
                     && patientSSNSearch.getText().trim().length() == 0) {
@@ -174,16 +180,37 @@ public class DoctorController {
     @FXML
     private void updatePatient(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
+
             Double weight = Double.parseDouble(patientWeight.getText());
             Double height = Double.parseDouble(patientHeight.getText());
             Integer doctor = Integer.parseInt(doctorLicense.getText());
             Integer nurse = Integer.parseInt(nurseID.getText());
             Integer id = Integer.parseInt(patientUpdateID.getText());
-            PatientDAO.editPatient(id,patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
+
+            char[] ssnArr = PatientSSN.getText().toCharArray();
+            String ssn = formatSSN(ssnArr);
+
+            PatientDAO.editPatient(id, patientFirstName.getText().toUpperCase(),
+                    patientLastName.getText().toUpperCase(),
+                    patientGender.getText().toUpperCase(),ssn,
                     patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, doctor,nurse,patientCurrentCondition.getText());
             patientTable.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
             throw e;
         }
+    }
+
+    private String formatSSN(char[] array) {
+        StringBuilder ssn = new StringBuilder();
+        int index = 0;
+        for (int i = 0; i < array.length + 2; i++) {
+            if (i == 3 || i == 6) {
+                ssn.append("-");
+            } else {
+                ssn.append(array[index]);
+                index++;
+            }
+        }
+        return ssn.toString();
     }
 }
