@@ -33,7 +33,7 @@ public class NurseController {
     @FXML
     private TableView table;
     @FXML
-    private TableColumn<Patient, Integer> patientIDtable;
+    private TableColumn<Patient, Integer> patientIDTable;
     @FXML
     private TableColumn<Patient, String> patientFirstNameTable;
     @FXML
@@ -49,9 +49,9 @@ public class NurseController {
     @FXML
     private TableColumn<Patient, String> PatientSSNTable;
     @FXML
-    private TableColumn<Doctor, Integer> doctorLicenseTable;
+    private TableColumn<Patient, String> doctorLicenseTable;
     @FXML
-    private TableColumn<Nurse, Integer> nurseIDTable;
+    private TableColumn<Patient, String> nurseIDTable;
     @FXML
     private TableColumn<Patient, String> conditionTable;
     @FXML
@@ -60,8 +60,6 @@ public class NurseController {
     private TextField patientWeight;
     @FXML
     private TextField patientCurrentCondition;
-    @FXML
-    private DatePicker patientDateOfRegistration;
     @FXML
     private TextField patientFirstNameSearch;
     @FXML
@@ -83,7 +81,7 @@ public class NurseController {
             return t;
         });
 
-        patientIDtable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+        patientIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
         patientFirstNameTable.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         patientLastNameTable.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
         patientGenderTable.setCellValueFactory(cellData -> cellData.getValue().genderProperty());
@@ -91,8 +89,8 @@ public class NurseController {
         patientHeightTable.setCellValueFactory(cellData -> cellData.getValue().heightProperty().asObject());
         patientWeightTable.setCellValueFactory(cellData -> cellData.getValue().weightProperty().asObject());
         PatientSSNTable.setCellValueFactory(cellData -> cellData.getValue().ssnProperty());
-        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().licenseProperty().asObject());
-        nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().getDoctor().lastNameProperty());
+        nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().getNurse().lastNameProperty());
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 
         try {
