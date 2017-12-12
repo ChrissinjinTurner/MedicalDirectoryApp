@@ -171,7 +171,7 @@ public class NurseController {
             Integer id = Integer.parseInt(patientUpdateID.getText());
             char[] ssnArr = PatientSSN.getText().toCharArray();
             PatientDAO.editPatient(id,patientFirstName.getText().toUpperCase(),patientLastName.getText().toUpperCase(),
-                    patientGender.getText(),formatSSN(ssnArr),
+                    patientGender.getText().toUpperCase(),formatSSN(ssnArr),
                     patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, 1,2,patientCurrentCondition.getText());
             table.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
