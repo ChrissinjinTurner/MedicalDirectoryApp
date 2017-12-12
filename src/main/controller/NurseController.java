@@ -6,8 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
-import main.type.Doctor;
-import main.type.Nurse;
 import main.type.Patient;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
@@ -70,12 +68,12 @@ public class NurseController {
     private TextField patientUpdateID;
 
     //for multithreading
-    private Executor execute;
+    private Executor executor;
 
     @FXML
-    private void intitialize(){
+    private void initialize(){
         //For multithreading: Create executor that uses daemon threads:
-        execute = Executors.newCachedThreadPool((runnable) -> {
+        executor = Executors.newCachedThreadPool((runnable) -> {
             Thread t = new Thread (runnable);
             t.setDaemon(true);
             return t;
