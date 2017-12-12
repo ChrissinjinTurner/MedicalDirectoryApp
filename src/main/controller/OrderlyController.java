@@ -45,12 +45,12 @@ public class OrderlyController {
     private TextField patientLastNameSearch;
 
     //for multithreading
-    private Executor execute;
+    private Executor executor;
 
     @FXML
-    private void intitialize(){
+    private void initialize(){
         //For multithreading: Create executor that uses daemon threads:
-        execute = Executors.newCachedThreadPool((runnable) -> {
+        executor = Executors.newCachedThreadPool((runnable) -> {
             Thread t = new Thread (runnable);
             t.setDaemon(true);
             return t;
