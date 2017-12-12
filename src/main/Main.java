@@ -31,6 +31,7 @@ public class Main extends Application{
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Software Quality Assurance Project");
+        this.primaryStage.setResizable(false);
         showView("scene/LoginScene.fxml");
     }
 
@@ -58,6 +59,7 @@ public class Main extends Application{
 
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
