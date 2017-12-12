@@ -48,7 +48,7 @@ public class OrderlyController {
     private Executor executor;
 
     @FXML
-    private void initialize(){
+    private void initialize() {
         //For multithreading: Create executor that uses daemon threads:
         executor = Executors.newCachedThreadPool((runnable) -> {
             Thread t = new Thread (runnable);
@@ -75,9 +75,9 @@ public class OrderlyController {
 
     }
     @FXML
-    private void searchPatient (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+    private void searchPatient(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
-            //Get Employee information
+            //Get Patient information
             ObservableList<Patient> patients = FXCollections.observableArrayList();
             if (patientFirstNameSearch.getText().trim().length() == 0 && patientLastNameSearch.getText().trim().length() == 0) {
                 patients = PatientDAO.getPatients();

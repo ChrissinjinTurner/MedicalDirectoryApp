@@ -99,13 +99,14 @@ public class NurseController {
 
     }
 
-    //Insert an employee to the DB
     @FXML
-    private void insertPatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    private void insertPatient(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             Double weight = Double.parseDouble(patientWeight.getText());
             Double height = Double.parseDouble(patientHeight.getText());
-            PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
+            char[] ssnArr = PatientSSN.getText().toCharArray();
+            PatientDAO.addPatient(patientFirstName.getText().toUpperCase(),patientLastName.getText().toUpperCase(),
+                    patientGender.getText().toUpperCase(),formatSSN(ssnArr),
                     patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, 1,2,patientCurrentCondition.getText());
             table.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
@@ -114,9 +115,9 @@ public class NurseController {
     }
 
     @FXML
-    private void searchPatient (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+    private void searchPatient(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
-            //Get Employee information
+            //Get Patient information
             ObservableList<Patient> patients = FXCollections.observableArrayList();
             if (patientFirstNameSearch.getText().trim().length() == 0 && patientLastNameSearch.getText().trim().length() == 0
                     && patientSSNSearch.getText().trim().length() == 0) {
@@ -152,7 +153,7 @@ public class NurseController {
     }
 
     @FXML
-    private void deletePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    private void deletePatient(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             int id = Integer.parseInt(patientUpdateID.getText());
             PatientDAO.deletePatient(id);
@@ -163,16 +164,32 @@ public class NurseController {
     }
 
     @FXML
-    private void updatePatient (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    private void updatePatient(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             Double weight = Double.parseDouble(patientWeight.getText());
             Double height = Double.parseDouble(patientHeight.getText());
             Integer id = Integer.parseInt(patientUpdateID.getText());
-            PatientDAO.editPatient(id,patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
+            char[] ssnArr = PatientSSN.getText().toCharArray();
+            PatientDAO.editPatient(id,patientFirstName.getText().toUpperCase(),patientLastName.getText().toUpperCase(),
+                    patientGender.getText(),formatSSN(ssnArr),
                     patientDOB.toString(),weight,height, 1,2,patientCurrentCondition.getText());
             table.setItems(PatientDAO.getPatients());
         } catch (SQLException e) {
             throw e;
         }
+    }
+
+    private String formatSSN(char[] array) {
+        StringBuilder ssn = new StringBuilder();
+        int index = 0;
+        for (int i = 0; i < array.length + 2; i++) {
+            if (i == 3 || i == 6) {
+                ssn.append("-");
+            } else {
+                ssn.append(array[index]);
+                index++;
+            }
+        }
+        return ssn.toString();
     }
 }
