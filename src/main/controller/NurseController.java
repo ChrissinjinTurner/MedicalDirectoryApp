@@ -1,5 +1,6 @@
 package main.controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -94,6 +95,12 @@ public class NurseController {
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 
+        try {
+            table.setItems(PatientDAO.getPatients());
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 
     //Insert an employee to the DB
@@ -114,21 +121,37 @@ public class NurseController {
     private void searchPatient (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
             //Get Employee information
-            ObservableList patient = null;
-            if (patientFirstNameSearch == null && patientLastNameSearch == null) {
-                patient = PatientDAO.getPatient(patientFirstNameSearch.getText(), patientLastNameSearch.getText(), patientSSNSearch.getText());
-            } else if (patientLastNameSearch == null && patientSSNSearch == null) {
-                patient = PatientDAO.getPatientByFirstName(patientFirstNameSearch.getText());
-            } else if (patientFirstNameSearch == null && patientSSNSearch == null){
-                patient = PatientDAO.getPatientByLastName(patientLastNameSearch.getText());
+            ObservableList<Patient> patients = FXCollections.observableArrayList();
+            if (patientFirstNameSearch.getText().trim().length() == 0 && patientLastNameSearch.getText().trim().length() == 0
+                    && patientSSNSearch.getText().trim().length() == 0) {
+                patients = PatientDAO.getPatients();
+            } else if (patientFirstNameSearch.getText().trim().length() == 0 && patientLastNameSearch.getText().trim().length() == 0) {
+                patients.add(PatientDAO.getPatientBySSN(patientSSNSearch.getText()));
+            } else if (patientLastNameSearch.getText().trim().length() == 0 && patientSSNSearch.getText().trim().length() == 0) {
+                patients = PatientDAO.getPatientByFirstName(patientFirstNameSearch.getText());
+            } else if (patientFirstNameSearch.getText().trim().length() == 0 && patientSSNSearch.getText().trim().length() == 0){
+                patients = PatientDAO.getPatientByLastName(patientLastNameSearch.getText());
+            } else if (patientSSNSearch.getText().trim().length() == 0) {
+                patients = PatientDAO.getPatientByFirstAndLastName(patientFirstNameSearch.getText(), patientLastNameSearch.getText());
             } else {
-                patient = (ObservableList) PatientDAO.getPatientBySSN(patientSSNSearch.getText());
+                patients = PatientDAO.getPatient(patientFirstNameSearch.getText(), patientLastNameSearch.getText(), patientSSNSearch.getText());
             }
 
-            table.setItems(patient);
+            table.setItems(patients);
         } catch (SQLException e) {
             e.printStackTrace();
             throw e;
+        }
+    }
+
+    @FXML
+    private void searchPatients(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            ObservableList<Patient> patients = FXCollections.observableArrayList();
+            patients = PatientDAO.getPatients();
+            table.setItems(patients);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
