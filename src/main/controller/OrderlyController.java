@@ -34,9 +34,9 @@ public class OrderlyController {
     @FXML
     private TableColumn<Patient, Double> patientWeightTable;
     @FXML
-    private TableColumn<Doctor, Integer> doctorLicenseTable;
+    private TableColumn<Patient, String> doctorLicenseTable;
     @FXML
-    private TableColumn<Nurse, Integer> nurseIDTable;
+    private TableColumn<Patient, String> nurseIDTable;
     @FXML
     private TableColumn<Patient, String> conditionTable;
     @FXML
@@ -63,8 +63,8 @@ public class OrderlyController {
         patientDOBTable.setCellValueFactory(cellData -> cellData.getValue().dobProperty());
         patientHeightTable.setCellValueFactory(cellData -> cellData.getValue().heightProperty().asObject());
         patientWeightTable.setCellValueFactory(cellData -> cellData.getValue().weightProperty().asObject());
-        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().licenseProperty().asObject());
-        nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
+        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().getDoctor().lastNameProperty());
+        nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().getNurse().lastNameProperty());
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 
         try {
