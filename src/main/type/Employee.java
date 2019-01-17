@@ -2,10 +2,14 @@ package main.type;
 
 import javafx.beans.property.IntegerProperty;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+<<<<<<< HEAD
 import java.util.Date;
 =======
 import javafx.beans.property.StringProperty;
@@ -15,6 +19,8 @@ import java.util.Calendar;
 import java.sql.Date;
 >>>>>>> f0d9824... Fixed Employee and EmployeeDAO reg_date
 =======
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
 import java.util.Date;
 >>>>>>> 574bd49... Fixed Employee sql.date --> util.date
 

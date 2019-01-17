@@ -22,6 +22,9 @@ public class Patient {
 
     public Patient() {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
         this.id = new SimpleIntegerProperty();
         this.firstName = new SimpleStringProperty();
         this.lastName = new SimpleStringProperty();
@@ -45,6 +48,7 @@ public class Patient {
         this.dob = new SimpleStringProperty(dob);
         this.weight = new SimpleDoubleProperty(weight);
         this.height = new SimpleDoubleProperty(height);
+<<<<<<< HEAD
         this.doctor = doctor;
         this.nurse = nurse;
         this.currentCondition = new SimpleStringProperty(currentCondition);
@@ -64,6 +68,11 @@ public class Patient {
         this.nurse = nurse;
         this.currentCondition = currentCondition;
 >>>>>>> 27abdf4... Fixed broken stuff done by Chris
+=======
+        this.doctor = doctor;
+        this.nurse = nurse;
+        this.currentCondition = new SimpleStringProperty(currentCondition);
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
         this.dateRegistered = dateRegistered;
     }
 

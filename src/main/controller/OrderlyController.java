@@ -1,6 +1,9 @@
 package main.controller;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +17,7 @@ import main.type.Patient;
 import main.type.PatientDAO;
 
 import java.sql.SQLException;
+<<<<<<< HEAD
 =======
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -28,16 +32,23 @@ import java.awt.*;
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
 =======
 >>>>>>> b5d0d58... fixed errors in both our scenese and controllers
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class OrderlyController {
     @FXML
 <<<<<<< HEAD
+<<<<<<< HEAD
     private TableView patientTable;
     @FXML
 =======
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
+=======
+    private TableView patientTable;
+    @FXML
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
     private TableColumn<Patient, Integer> patientIDtable;
     @FXML
     private TableColumn<Patient, String> patientFirstNameTable;
@@ -53,6 +64,7 @@ public class OrderlyController {
     private TableColumn<Patient, Double> patientWeightTable;
     @FXML
 <<<<<<< HEAD
+<<<<<<< HEAD
     private TableColumn<Patient, String> doctorLicenseTable;
     @FXML
     private TableColumn<Patient, String> nurseIDTable;
@@ -61,6 +73,11 @@ public class OrderlyController {
     @FXML
     private TableColumn<Nurse, Integer> nurseIDTable;
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
+=======
+    private TableColumn<Patient, String> doctorLicenseTable;
+    @FXML
+    private TableColumn<Patient, String> nurseIDTable;
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
     @FXML
     private TableColumn<Patient, String> conditionTable;
     @FXML
@@ -70,12 +87,16 @@ public class OrderlyController {
 
     //for multithreading
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
     private Executor executor;
 
     @FXML
     private void initialize() {
         //For multithreading: Create executor that uses daemon threads:
         executor = Executors.newCachedThreadPool((runnable) -> {
+<<<<<<< HEAD
 =======
     private Executor execute;
 
@@ -84,6 +105,8 @@ public class OrderlyController {
         //For multithreading: Create executor that uses daemon threads:
         execute = Executors.newCachedThreadPool((runnable) -> {
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
             Thread t = new Thread (runnable);
             t.setDaemon(true);
             return t;
@@ -97,6 +120,9 @@ public class OrderlyController {
         patientHeightTable.setCellValueFactory(cellData -> cellData.getValue().heightProperty().asObject());
         patientWeightTable.setCellValueFactory(cellData -> cellData.getValue().weightProperty().asObject());
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
         doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().getDoctor().lastNameProperty());
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().getNurse().lastNameProperty());
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
@@ -142,6 +168,7 @@ public class OrderlyController {
     }
 
 
+<<<<<<< HEAD
 =======
         doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().licenseProperty().asObject());
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
@@ -149,4 +176,6 @@ public class OrderlyController {
 
     }
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
 }

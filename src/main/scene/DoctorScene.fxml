@@ -14,6 +14,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <AnchorPane fx:id="doctorPane" prefHeight="733.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.DoctorController">
    <children>
       <TextField fx:id="patientFirstName" layoutX="135.0" layoutY="59.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
@@ -47,6 +48,27 @@
       <Button fx:id="addNewPatientButton" layoutX="737.0" layoutY="97.0" mnemonicParsing="false" onAction="#insertPatient" text="Add Patient" />
       <TableView fx:id="patientTable" layoutX="8.0" layoutY="268.0" prefHeight="367.0" prefWidth="859.0">
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
+=======
+<AnchorPane fx:id="doctorPane" prefHeight="733.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controller.DoctorController">
+   <children>
+      <TextField fx:id="patientFirstName" layoutX="135.0" layoutY="59.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
+      <TextField fx:id="patientLastName" layoutX="233.0" layoutY="59.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
+      <TextField fx:id="patientGender" layoutX="333.0" layoutY="59.0" prefHeight="27.0" prefWidth="62.0" promptText="Gender" />
+      <DatePicker fx:id="patientDOB" layoutX="404.0" layoutY="59.0" prefHeight="27.0" prefWidth="150.0" promptText="Date of Birth" />
+      <TextField fx:id="patientHeight" layoutX="564.0" layoutY="59.0" prefHeight="12.0" prefWidth="113.0" promptText="Height (cm)" />
+      <TextField fx:id="patientWeight" layoutX="687.0" layoutY="59.0" prefHeight="12.0" prefWidth="113.0" promptText="Weight (lbs)" />
+      <TextField fx:id="PatientSSN" layoutX="283.0" layoutY="97.0" prefHeight="12.0" prefWidth="113.0" promptText="Patient SSN" />
+      <TextField fx:id="doctorLicense" layoutX="405.0" layoutY="97.0" prefHeight="27.0" prefWidth="125.0" promptText="Doctor License #" />
+      <TextField fx:id="nurseID" layoutX="539.0" layoutY="97.0" prefHeight="12.0" prefWidth="113.0" promptText="Nurse ID" />
+      <TextField fx:id="patientCurrentCondition" alignment="CENTER" layoutX="129.0" layoutY="134.0" prefHeight="27.0" prefWidth="651.0" promptText="Current Condition" />
+      <TextField fx:id="patientUpdateID" layoutX="505.0" layoutY="171.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID " />
+      <TextField fx:id="patientFirstNameSearch" layoutX="19.0" layoutY="252.0" prefHeight="27.0" prefWidth="90.0" promptText="First Name" />
+      <TextField fx:id="patientLastNameSearch" layoutX="119.0" layoutY="252.0" prefHeight="27.0" prefWidth="90.0" promptText="Last Name" />
+      <TextField fx:id="patientSSNSearch" layoutX="216.0" layoutY="252.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient SSN" />
+      <TextField fx:id="patientID" layoutX="370.0" layoutY="678.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID " />
+      <Button fx:id="addNewPatientButton" layoutX="800.0" layoutY="134.0" mnemonicParsing="false" onAction="#insertPatient" text="Add Patient" />
+      <TableView fx:id="patientTable" editable="true" layoutX="8.0" layoutY="296.0" prefHeight="367.0" prefWidth="925.0" tableMenuButtonVisible="true">
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
         <columns>
           <TableColumn fx:id="patientIDTable" editable="false" prefWidth="29.0" text="ID" />
           <TableColumn fx:id="patientFirstNameTable" editable="false" prefWidth="106.0" text="First Name" />
@@ -62,6 +84,9 @@
         </columns>
       </TableView>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
       <Label layoutX="424.0" layoutY="34.0" text="Add New Patient" />
       <Separator layoutX="-6.0" layoutY="212.0" prefHeight="0.0" prefWidth="946.0" />
       <Label layoutX="21.0" layoutY="223.0" text="Search Patient" />
@@ -70,6 +95,7 @@
       <Button fx:id="updateButton" alignment="CENTER" layoutX="632.0" layoutY="171.0" mnemonicParsing="false" onAction="#updatePatient" text="Update Patient" />
       <Button fx:id="searchButton1" layoutX="408.0" layoutY="252.0" mnemonicParsing="false" onAction="#searchPatients" text="Display All Patients" />
       <Label layoutX="172.0" layoutY="176.0" text="Enter Patient ID and Corresponding Data to Update:" />
+<<<<<<< HEAD
 =======
       <Label layoutX="25.0" layoutY="33.0" text="Add New Patient" />
       <DatePicker fx:id="patientDOB" layoutX="292.0" layoutY="61.0" prefHeight="27.0" prefWidth="150.0" promptText="Date of Birth" />
@@ -98,5 +124,7 @@
       <TextField fx:id="patientID" layoutX="338.0" layoutY="651.0" prefHeight="27.0" prefWidth="108.0" promptText="Patient ID " />
       <TextField fx:id="patientUpdateID" layoutX="575.0" layoutY="97.0" prefHeight="27.0" prefWidth="58.0" promptText="ID" />
 >>>>>>> 2f36310... Addition of Main, and Controller
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
    </children>
 </AnchorPane>

@@ -1,6 +1,7 @@
 package main.controller;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import javafx.collections.FXCollections;
 =======
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
@@ -14,12 +15,21 @@ import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.control.TableColumn;
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.DatePicker;
 import javafx.scene.layout.AnchorPane;
 import main.type.*;
 
+<<<<<<< HEAD
 =======
 =======
 import javafx.scene.control.TextField;
@@ -38,6 +48,8 @@ import java.awt.*;
 >>>>>>> 0fa1c08... Added the Controllers, have not finished methods yet
 =======
 >>>>>>> b5d0d58... fixed errors in both our scenese and controllers
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Executor;
@@ -74,10 +86,14 @@ public class DoctorController {
     private TableColumn<Patient, String> patientSSNTable;
     @FXML
 <<<<<<< HEAD
+<<<<<<< HEAD
     private TableColumn<Patient, String> doctorLicenseTable;
 =======
     private TableColumn<Doctor, Integer> doctorLicenseTable;
 >>>>>>> 27abdf4... Fixed broken stuff done by Chris
+=======
+    private TableColumn<Patient, String> doctorLicenseTable;
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
     @FXML
     private TableColumn<Patient, String> nurseIDTable;
     @FXML
@@ -94,10 +110,13 @@ public class DoctorController {
     private TextField patientCurrentCondition;
     @FXML
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     private DatePicker patientDateOfRegistration;
     @FXML
 >>>>>>> b5d0d58... fixed errors in both our scenese and controllers
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
     private TextField patientFirstNameSearch;
     @FXML
     private TextField patientSSNSearch;
@@ -129,6 +148,7 @@ public class DoctorController {
         patientHeightTable.setCellValueFactory(cellData -> cellData.getValue().heightProperty().asObject());
         patientWeightTable.setCellValueFactory(cellData -> cellData.getValue().weightProperty().asObject());
 <<<<<<< HEAD
+<<<<<<< HEAD
         patientSSNTable.setCellValueFactory(cellData -> cellData.getValue().ssnProperty());
         doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().getDoctor().lastNameProperty());
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().getNurse().lastNameProperty());
@@ -137,6 +157,11 @@ public class DoctorController {
         doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().licenseProperty().asObject());
         nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
 >>>>>>> 27abdf4... Fixed broken stuff done by Chris
+=======
+        patientSSNTable.setCellValueFactory(cellData -> cellData.getValue().ssnProperty());
+        doctorLicenseTable.setCellValueFactory(cellData -> cellData.getValue().getDoctor().lastNameProperty());
+        nurseIDTable.setCellValueFactory(cellData -> cellData.getValue().getNurse().lastNameProperty());
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
         conditionTable.setCellValueFactory(cellData -> cellData.getValue().currentConditionProperty());
 
         try {
@@ -156,6 +181,9 @@ public class DoctorController {
             Integer doctor = Integer.parseInt(doctorLicense.getText());
             Integer nurse = Integer.parseInt(nurseID.getText());
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
 
             char[] ssnArr = PatientSSN.getText().toCharArray();
             String ssn = formatSSN(ssnArr);
@@ -165,6 +193,7 @@ public class DoctorController {
                     patientGender.getText().toUpperCase(),ssn,
                     patientDOB.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),weight,height, doctor,nurse,patientCurrentCondition.getText());
             patientTable.setItems(PatientDAO.getPatients());
+<<<<<<< HEAD
 =======
             PatientDAO.addPatient(patientFirstName.getText(),patientLastName.getText(),patientGender.getText(),PatientSSN.getText(),
 <<<<<<< HEAD
@@ -259,6 +288,8 @@ public class DoctorController {
             int id = Integer.parseInt(patientID.getText());
             PatientDAO.deletePatient(id);
             patientTable.setItems(PatientDAO.getPatients());
+=======
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
         } catch (SQLException e) {
 >>>>>>> 2f36310... Addition of Main, and Controller
             throw e;
@@ -266,6 +297,7 @@ public class DoctorController {
     }
 
     @FXML
+<<<<<<< HEAD
 <<<<<<< HEAD
     private void searchPatients(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
@@ -315,6 +347,69 @@ public class DoctorController {
             char[] ssnArr = PatientSSN.getText().toCharArray();
             String ssn = formatSSN(ssnArr);
 
+=======
+    private void searchPatient(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            //Get Patient information
+            ObservableList<Patient> patients = FXCollections.observableArrayList();
+            if (patientFirstNameSearch.getText().trim().length() == 0 && patientLastNameSearch.getText().trim().length() == 0
+                    && patientSSNSearch.getText().trim().length() == 0) {
+                patients = PatientDAO.getPatients();
+            } else if (patientFirstNameSearch.getText().trim().length() == 0 && patientLastNameSearch.getText().trim().length() == 0) {
+                patients.add(PatientDAO.getPatientBySSN(patientSSNSearch.getText()));
+            } else if (patientLastNameSearch.getText().trim().length() == 0 && patientSSNSearch.getText().trim().length() == 0) {
+                patients = PatientDAO.getPatientByFirstName(patientFirstNameSearch.getText());
+            } else if (patientFirstNameSearch.getText().trim().length() == 0 && patientSSNSearch.getText().trim().length() == 0){
+                patients = PatientDAO.getPatientByLastName(patientLastNameSearch.getText());
+            } else if (patientSSNSearch.getText().trim().length() == 0) {
+                patients = PatientDAO.getPatientByFirstAndLastName(patientFirstNameSearch.getText(), patientLastNameSearch.getText());
+            } else {
+                patients = PatientDAO.getPatient(patientFirstNameSearch.getText(), patientLastNameSearch.getText(), patientSSNSearch.getText());
+            }
+
+            patientTable.setItems(patients);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @FXML
+    private void searchPatients(ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            ObservableList<Patient> patients = FXCollections.observableArrayList();
+            patients = PatientDAO.getPatients();
+            patientTable.setItems(patients);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void deletePatient(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+            int id = Integer.parseInt(patientID.getText());
+            PatientDAO.deletePatient(id);
+            patientTable.setItems(PatientDAO.getPatients());
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    @FXML
+    private void updatePatient(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        try {
+
+            Double weight = Double.parseDouble(patientWeight.getText());
+            Double height = Double.parseDouble(patientHeight.getText());
+            Integer doctor = Integer.parseInt(doctorLicense.getText());
+            Integer nurse = Integer.parseInt(nurseID.getText());
+            Integer id = Integer.parseInt(patientUpdateID.getText());
+
+            char[] ssnArr = PatientSSN.getText().toCharArray();
+            String ssn = formatSSN(ssnArr);
+
+>>>>>>> 057759ae22f86f1ee4c6895a5b565f1334b069de
             PatientDAO.editPatient(id, patientFirstName.getText().toUpperCase(),
                     patientLastName.getText().toUpperCase(),
                     patientGender.getText().toUpperCase(),ssn,
